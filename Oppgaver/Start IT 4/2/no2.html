@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h1>Hva heter hovedstaden i Norge?</h1>
+    <h2 id="aaa"></h2>
+    <h2 onclick="doSomething()">Oslo</h2>
+
+    <h2 id="bbb"></h2> 
+    <h2 onclick="doSomething2()">Tønsberg</h2>
+
+    <h2 id="ccc"></h2>
+    <h2 onclick="doSomething3()">Bergen</h2>
+
+
+
+
+    <script>
+        function doSomething() {
+            document.getElementById('aaa').innerHTML = 'Svaret er riktig!';
+        }
+
+
+
+
+        function doSomething2() {
+            document.getElementById('bbb').innerHTML = 'Svaret er feil!';
+        }
+
+
+
+        function doSomething3() {
+            document.getElementById('ccc').innerHTML = 'Svaret er feil!';
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<html>
+    <head>
+<title>Karina</title>
+<style>
+    ul {
+        background-color: bisque;
+        border: solid orange 1px; 
+    }
+li 
+{
+color: forestgreen;
+}
+div {
+    margin: 20px;
+    padding: 20px;
+    background-color: lightblue;
+}
+div.type1 
+{
+    color: blue;
+}
+div.type2 
+{
+color: green; 
+}
+</style>
+
+    </head>
+    <body>
+           <h1>Hva heter hovedstaden i Norge?</h1>
+           <div id="svarboks">Trykk på det alternativet du tror er riktig!</div>
+            <div class="type1" onclick="velg(this)">Bergen</div>
+            <div class="type2" onclick="velg(this)">Oslo</div>
+            <div onclick="velg(this)">Larvik</div>
+
+            <script>
+        function velg(element){
+            var element2 = document.getElementById('svarboks');
+            element2.innerHTML = 'Du svarte ' + element.innerHTML + ' og det var'; 
+    }
+            </script>
+
+
+    </body>
+</html>

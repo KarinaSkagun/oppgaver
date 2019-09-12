@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+<title>Hei!</title>
+<style>
+div {
+    color: darkgrey; 
+background-color: lightgrey; 
+padding: 15px;
+margin: 2px; 
+border: solid grey 2px;
+width: 40px;
+height: 40px; 
+float: left; 
+text-align: center;
+font-size: 300%;
+}
+
+div.førstPåLinja {
+    clear: left; 
+}
+
+
+</style>
+    </head>
+<body>
+        <div onclick="trykk(this)"></div>
+        <div onclick="trykk(this)"></div>
+        <div onclick="trykk(this)"></div>
+
+        <div class="førstPåLinja" onclick="trykk(this)"></div>
+        <div onclick="trykk(this)"></div>
+        <div onclick="trykk(this)"></div>
+
+        <div class="førstPåLinja" onclick="trykk(this)"></div>
+        <div onclick="trykk(this)"></div>
+        <div onclick="trykk(this)"></div>
+
+
+<script>
+    function trykk(tagElement){
+        tagElement.innerHTML = 'x';
+}
+
+</script>
+
+
+
+
+
+</body>
+</html>

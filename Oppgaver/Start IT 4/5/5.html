@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<style>
+div {
+font-size: 20px;
+font:bold;
+border: rgb(255, 136, 0) solid 1px;
+
+}
+
+</style>
+<body onload="onLoad()">
+    <p>Ferdighet 5 - Kode som kjøres når siden lastes vs kode i en funksjon</p>
+    <button onclick="doClick()">Trykk her</button>
+</br>
+</br>
+
+    <div id="a"></div>
+</br>
+    Prøv også å reloade siden.
+
+    <img src="høst.jpg">
+
+    <script>
+      
+        alert('Dette skjer når siden lastes');
+
+        function doClick() {
+            alert('Dette skjer i funksjonen doClick');
+        }
+        function onLoad() {
+            alert(new Date().toTimeString());
+        }
+
+        document.getElementById('a').innerHTML = '' + new Date().toTimeString();
+    </script>
+</body>
+</html>

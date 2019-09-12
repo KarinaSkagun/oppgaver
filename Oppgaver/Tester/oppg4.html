@@ -1,0 +1,58 @@
+<html>
+
+<body>
+
+    <div id="demo">Trykk på knappen!</div>
+    <br />
+
+    <button onclick="myFunction()">1</button>
+    <button onclick="myFunction()">2</button>
+    <button onclick="myFunction()">3</button>
+
+    <button onclick="myFunction()" class="first">4</button>
+    <button onclick="myFunction()">5</button>
+    <button onclick="myFunction()">6</button>
+
+    <button onclick="myFunction()" class="first">7</button>
+    <button onclick="myFunction()">8</button>
+    <button onclick="myFunction()">9</button>
+
+
+    <style>
+        button {
+            font-size: 25px;
+            float: left;
+            padding: 25px;
+            margin: none;
+            border: black solid 1px;
+
+
+        }
+
+        button.first {
+            clear: left;
+
+        }
+
+        div {
+            font-size: 30px;}
+    </style>
+
+
+    <script>
+        var add = (function() {
+            var counter = 0;
+            return function() { return counter += 1; }
+        })();
+
+        function myFunction() {
+            document.getElementById("demo").innerHTML = add();
+        }
+     
+    </script>
+
+
+
+</body>
+
+</html>

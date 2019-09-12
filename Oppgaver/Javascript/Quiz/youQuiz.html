@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+
+    <title>Quiz</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
+    <script src="javaS.js"></script>
+
+</head>
+
+<body>
+    <h1>This is the best quiz on the internet!</h1>
+
+    <form id="quiz" name="quiz">
+
+        <p>Hva er hovedstaden i Norge?</p>
+        <input id="textbox" type="text" name="question1" />
+
+        <p>Hva er hovedstaden i Danmark?</p>
+        <input type="radio" id="mc" name="question2" value="København" />København<br>
+        <input type="radio" id="mc" name="question2" value="Ålborg" />Ålborg<br>
+
+        <p>Hva er hovedstaden i Sverige?</p>
+        <input type="radio" id="mc" name="question3" value="Stockholm" />Stockholm<br>
+        <input type="radio" id="mc" name="question3" value="Strømstad" />Strømstad<br>
+
+        <input type="button" id="button" value="I'm finished!" onclick="check();">
+     </form>
+
+    <div id="after_submit">
+
+        <p id="message"></p>
+        <p id="number_correct"></p>
+        <img id="picture">
+    </div>
+
+</body>
+
+</html>
