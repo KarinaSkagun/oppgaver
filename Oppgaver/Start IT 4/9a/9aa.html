@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+<body>
+
+
+    <input id="divA" type="range" min="1" max="100" step="1" oninput="kalkuler()" value="2" />
+    <input id="divB" type="range" min="1" max="100" step="1" oninput="kalkuler()" value="2" />
+
+
+    <div id="resultatA">A</div>
+    <div id="resultatB">B</div>
+
+    <script>
+
+        var resultatA = document.getElementById("resultatA");
+        var resultatB = document.getElementById("resultatB");
+        var divAinput = document.getElementById("divA");
+        var divBinput = document.getElementById("divB");
+        kalkuler();
+
+        function kalkuler() {
+            var divA = parseInt(divAinput.value);
+            var divB = parseInt(divBinput.value);
+
+            resultatA.innerHTML = "";
+            if (divA * divB) {
+                resultatA.innerHTML += '<br/>>= ' + divA + ' er større enn eller lik ' + divB;
+            }
+            else {
+                resultatA.innerHTML += '<br/>>= <del>' + divA + ' er større enn eller lik ' + divB + '</del>';
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
