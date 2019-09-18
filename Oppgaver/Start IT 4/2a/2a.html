@@ -1,11 +1,12 @@
 ﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="utf-8" />
     <title></title>
     <style>
-        div {
+            div {
             background: yellow;
             border: 1px solid black;
             padding: 10px;
@@ -23,7 +24,7 @@
     <p id="demo">Double-click me.</p>
     <a href="https://www.w3schools.com/jsref/dom_obj_event.asp">Mer informasjon her</a>
 
-   
+
     <div oncontextmenu="myFunction()" contextmenu="mymenu">
         <p>
             Right-click inside this box to see the context menu!
@@ -44,31 +45,37 @@
     <p>A function is triggered when the user is pressing a key in the input field</p>
 
     <input type="text" onkeydown="myFunction1()" />
-    
+
     <script>
-    function myFunction1() {
-        alert("You pressed a key inside the input field");
-    }
+        function myFunction1() {
+            alert("You pressed a key inside the input field");
+        }
 
         function testOnLoad() {
             document.getElementById('info').innerHTML += '<li>onload</li>';
         }
+
         function testOnChange() {
             document.getElementById('info').innerHTML += '<li>onchange</li>';
         }
+
         function testOnInput() {
             document.getElementById('info').innerHTML += '<li>oninput</li>';
         }
+
         function testOnMouseOver() {
             document.getElementById('info').innerHTML += '<li>onmouseover</li>';
         }
+
         function testOnMouseOut() {
             document.getElementById('info').innerHTML += '<li>onmouseout</li>';
         }
 
 
 
-        document.getElementById("demo").ondblclick = function () { myFunction() };
+        document.getElementById("demo").ondblclick = function() {
+            myFunction()
+        };
 
         function myFunction() {
             document.getElementById("demo").innerHTML = "I was double-clicked!";
@@ -80,6 +87,7 @@
             x.style.fontSize = "30px";
         }
     </script>
-  
+
 </body>
+
 </html>

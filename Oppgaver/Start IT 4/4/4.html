@@ -1,80 +1,49 @@
 ﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="utf-8" />
     <title></title>
 </head>
+
 <body>
-<style>
-    button {
-     font-size: 25px;
-     float:left;
-     padding: 25px;
-     margin: none;
-     border: black solid 1px;
-    }
- 
-    button.first {
-        clear:left;
- 
-    }
-</style>
+    <style>
+        button {
+            font-size: 25px;
+            float: left;
+            padding: 25px;
+            margin: none;
+            border: black solid 1px;
+        }
+        
+        button.first {
+            clear: left;
+        }
+    </style>
+    <div id="tall">Her vises tallene du trykker på: </div>
+    <div id="output"></div>
 
-    <p>Ferdighet 4 - Variabel utenfor funksjon og innenfor funksjon, samt sette sammen tekst av flere deler</p>
-     <div id="info">Trykk på knappen!</div>
-</br>
-</br>
-<div id="thetext"></div>
-    <button onclick="display(firstbox)">1</button>
-    <button onclick="display(secondbox)">2</button>
-    <button onclick="display(thirdbox)">3</button>
+    <br/>
 
-    <button onclick="display(fourthbox)" class="first">4</button>
-    <button onclick="display(fifthbox)">5</button>
-    <button onclick="display(sixthbox)">6</button>
+    <button onclick="display(this.innerHTML)">1</button>
+    <button onclick="display(this.innerHTML)">2</button>
+    <button onclick="display(this.innerHTML)">3</button>
 
-    <button onclick="display(seventhbox)" class="first">7</button>
-    <button onclick="display(eightbox)">8</button>
-    <button onclick="display(ninethbox)">9</button>
-   
+    <button onclick="display(this.innerHTML)" class="first">4</button>
+    <button onclick="display(this.innerHTML)">5</button>
+    <button onclick="display(this.innerHTML)">6</button>
 
-    
-
-    
-    
-
+    <button onclick="display(this.innerHTML)" class="first">7</button>
+    <button onclick="display(this.innerHTML)">8</button>
+    <button onclick="display(this.innerHTML)">9</button>
 
     <script>
-
-function display(selected) 
-{
-    if (selected == "firstbox") 
-    {
-        texttoshow = "1"; }
-            else if (selected =="secondbox")
-            {
-                texttoshow = "2"; 
-                document.getElementById("thetext").innerHTML = texttoshow;       
-    }
-}
-
-        var tallA = 0;
-        var tekstA = 'TekstA ';
-        console.log(tallA, tekstA);
-        function tell() {
-            var tallB = 0;
-            var tekstB = 'TekstB ';
-            tallA++;
-            tallB++;
-            tekstA += '*';
-            tekstB += '*';
-            document.getElementById('info').innerHTML =
-                'TallA=' + tallA +
-                '<br/>TallB=' + tallB +
-                '<br/>TekstA=' + tekstA +
-                '<br/>TekstB=' + tekstB;
+        function display(boks1) {
+            var nr1 = document.getElementById('tall');
+            document.getElementById('output').innerHTML += boks1;
         }
     </script>
 </body>
+
 </html>
