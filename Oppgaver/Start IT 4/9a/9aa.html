@@ -9,35 +9,43 @@
 
 <body>
 
-
+    <p>Boks A</p>
     <input id="divA" type="range" min="1" max="100" step="1" oninput="kalkuler()" value="2" />
+    <p>Boks B</p>
     <input id="divB" type="range" min="1" max="100" step="1" oninput="kalkuler()" value="2" />
 
 
-    <div id="resultatA">A</div>
-    <div id="resultatB">B</div>
+    <div id="A"></div>
+    <div id="B"></div>
+    <div id="sizeCompareDiv"></div>
 
     <script>
 
-        var resultatA = document.getElementById("resultatA");
-        var resultatB = document.getElementById("resultatB");
+        var resultatA = document.getElementById("A");
+        var resultatB = document.getElementById("B");
         var divAinput = document.getElementById("divA");
         var divBinput = document.getElementById("divB");
+        var size = document.getElementById("sizeCompareDiv");
         kalkuler();
 
         function kalkuler() {
             var divA = parseInt(divAinput.value);
             var divB = parseInt(divBinput.value);
+            size.innerHTML = "";
+            var arealA = divA * divB;
+            var arealB = divB * divA;
 
-            resultatA.innerHTML = "";
-            if (divA * divB) {
-                resultatA.innerHTML += '<br/>>= ' + divA + ' er større enn eller lik ' + divB;
-            }
-            else {
-                resultatA.innerHTML += '<br/>>= <del>' + divA + ' er større enn eller lik ' + divB + '</del>';
-            }
+           if (divA > divB) {
+               size.innerHTML = "Boks A har størst areal";
+           }
+           if (divA < divB)  {
+               size.innerHTML = "Boks B har størst areal";
+
+               if (divA == divB) {
+                   size.innerHTML = "Boksene er like store";
+               }
+           }
         }
-
 
     </script>
 </body>
