@@ -12,35 +12,53 @@
 
     <div class="slidecontainer">
         <h3>Bredde:</h3>
-        <input type="range" min="1" max="1000" value="500" class="slider" id="myRange">
+        <input type="range" min="1" max="1000" value="500" oninput="calculate()" class="slider" id="myRange">
         <p>Value: <span id="demo"></span></p>
     </div>
 
     <div class="slidecontainer1">
         <h3>Høyde:</h3>
-        <input type="range" min="1" max="1000" value="500" class="slider" id="myRange1">
+        <input type="range" min="1" max="1000" value="500" oninput="calculate()" class="slider" id="myRange1">
         <p>Value: <span id="demo1"></span></p>
     </div>
+    <div>Dette er areal:</div>
+    <div id="areal"></div>
+
+
 
     <script>
-     
         var slider = document.getElementById("myRange");
         var output = document.getElementById("demo");
         output.innerHTML = slider.value;
+        var bredde = 0;
+        var høyde = 0;
 
-        slider.oninput = function () {
+        var areal = document.getElementById("areal");
+
+        slider.oninput = function() {
+
             output.innerHTML = this.value;
+            bredde = this.value;
+            utregning();
         }
 
 
-        var slider = document.getElementById("myRange1");
-        var output = document.getElementById("demo1");
-        output.innerHTML = slider.value;
+        var slider1 = document.getElementById("myRange1");
+        var output1 = document.getElementById("demo1");
+        output1.innerHTML = slider1.value;
 
-        slider.oninput = function () {
-            output.innerHTML = this.value;
+        slider1.oninput = function() {
+            output1.innerHTML = this.value;
+            høyde = this.value;
+            utregning();
+
         }
 
+        function utregning() {
+
+            areal.innerHTML = (høyde * bredde);
+
+        }
     </script>
 
 </body>

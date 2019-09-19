@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="utf-8" />
     <title></title>
 </head>
+
 <body>
     <p>Ferdighet 7 - Sette variabel til resultat av et regnestykke. </p>
 
-    <input id="tallA" type="range" min="1" max="100" step="1" oninput="calculate()" value="2" />
-    <input id="tallB" type="range" min="1" max="100" step="1" oninput="calculate()" value="2" />
+    <div>Bredde:</div>
+    <input id="tallA" type="range" min="1" max="1000" step="1" oninput="calculate()" value="500" />
+    <div>Høyde:</div>
+    <input id="tallB" type="range" min="1" max="1000" step="1" oninput="calculate()" value="500" />
 
     <div id="resultat"></div>
 
@@ -20,6 +24,7 @@
 
 
         calculate();
+
         function calculate() {
             var tallA = parseInt(tallAInput.value);
             var tallB = parseInt(tallBInput.value);
@@ -28,7 +33,7 @@
             var produkt = tallA * tallB;
             var kvotient = tallA / tallB;
 
-            
+
             resultatDiv.innerHTML = '' +
                 tallA + '+' + tallB + '=' + sum + '<br/>' +
                 tallA + '-' + tallB + '=' + differense + '<br/>' +
@@ -37,4 +42,5 @@
         }
     </script>
 </body>
+
 </html>

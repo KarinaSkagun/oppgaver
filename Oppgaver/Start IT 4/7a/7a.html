@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+<body>
+    <div id="resultat"></div>
+
+    <script>
+        var resultatDiv = document.getElementById("resultat");
+        calculate();
+
+        function calculate() {
+            var bredde = 100 + Math.floor(Math.random() * 10);
+            var høyde = 100 + Math.floor(Math.random() * 20);
+            var borderSize = 100 + Math.floor(Math.random() * 10);
+            var sum = bredde + høyde + borderSize;
+            var differense = bredde - høyde - borderSize;
+            var produkt = bredde * høyde * borderSize;
+
+
+            resultatDiv.innerHTML =
+                "Bredde:" + " " + bredde + "+" + høyde + "+" + borderSize + "=" + sum + "<br/>" +
+                "Høyde:" + " " + bredde + "-" + høyde + "-" + borderSize + "=" + differense + "<br/>" +
+                "BorderSize:" + " " + bredde + "*" + høyde + "*" + borderSize + "=" + produkt + "<br/>";
+
+        }
+    </script>
+</body>
+
+</html>
