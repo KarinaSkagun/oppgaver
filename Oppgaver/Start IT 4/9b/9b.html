@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+<body>
+    <style>
+        button {
+            font-size: 25px;
+            float: left;
+            padding: 25px;
+            margin: none;
+            border: black solid 1px;
+        }
+        
+        button.first {
+            clear: left;
+        }
+    </style>
+    <div id="tall">Her vises tallene du trykker på: </div>
+    <div id="output"></div>
+
+    <br/>
+
+    <button onclick="display(this.innerHTML)">1</button>
+    <button onclick="display(this.innerHTML)">2</button>
+    <button onclick="display(this.innerHTML)">3</button>
+
+    <button onclick="display(this.innerHTML)" class="first">4</button>
+    <button onclick="display(this.innerHTML)">5</button>
+    <button onclick="display(this.innerHTML)">6</button>
+
+    <button onclick="display(this.innerHTML)" class="first">7</button>
+    <button onclick="display(this.innerHTML)">8</button>
+    <button onclick="display(this.innerHTML)">9</button>
+
+    <script>
+        function display(boks1) {
+            var nr1 = document.getElementById('tall');
+            document.getElementById('output').innerHTML += boks1;
+        }
+    </script>
+</body>
+
+</html>

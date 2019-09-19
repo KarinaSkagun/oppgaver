@@ -16,16 +16,8 @@
             padding: 15px;
             margin: 15px;
             color: lightgoldenrodyellow;
-            background-color: lightblue;
-        }
-        
-        .stil2::before::after {
-            border: 1px solid rgb(121, 63, 103);
-            padding: 15px;
-            margin: 15px;
-            color: lightgoldenrodyellow;
-            background-color: rgb(187, 113, 164);
             text-align: center;
+            background-color: brown;
         }
         
         .stilig::before {
@@ -36,12 +28,24 @@
             content: "🡄";
         }
         
-        div.stilig2::before {
-            content: "🡆";
+        .chk {
+            background-color: rgb(172, 91, 172);
         }
         
-        div.stilig2::after {
-            content: "🡄";
+        .chk2 {
+            color: darkviolet;
+        }
+        
+        .chk3 {
+            padding: 25px;
+        }
+        
+        .chk4 {
+            margin: 25px;
+        }
+        
+        .chk5 {
+            border: 2px dotted rgba(95, 18, 131, 0.568);
         }
     </style>
 </head>
@@ -59,13 +63,27 @@
     <br/>
     <br/>
 
-    <div id="stil"></div>
-    <input id="chk" type="checkbox" onchange="toggleStyle()" />
+    <div id="stil" onclick="selectedDiv(this)">Div A</div>
+    <div id="stil2" onclick="selectedDiv(this)">Div B</div>
+    <div id="stil3" onclick="selectedDiv(this)">Div C</div>
+    <div id="stil4" onclick="selectedDiv(this)">Div D</div>
+    <div id="stil5" onclick="selectedDiv(this)">Div E</div>
+    <br/>
+    <br/>
 
-    <div id="stil2"></div>
-    <input id="chk2" type="checkbox" onchange="toggleStyle2()" />
+    <input id="chk" type="checkbox" onchange="toggleStyle(this, 'chk')">Background-color
+    </input/>
+    <input id="chk2" type="checkbox" onchange="toggleStyle(this, 'chk2')">Color
+    </input/>
+    <input id="chk3" type="checkbox" onchange="toggleStyle(this, 'chk3')">Padding
+    </input/>
+    <input id="chk4" type="checkbox" onchange="toggleStyle(this, 'chk4')">Margin
+    </input/>
+    <input id="chk5" type="checkbox" onchange="toggleStyle(this, 'chk5')">Border
+    </input/>
 
     <script>
+        var selected = document.getElementById("stil");
         var textInput = document.getElementById('text');
         var h2Element = document.getElementById('overskrift');
 
@@ -101,23 +119,20 @@
             textInput.value = "Trykket på knapp B";
         }
 
-        function toggleStyle() {
-            var isChecked = document.getElementById("chk").checked;
-            document.getElementById("stil").classList.toggle("stilig", isChecked);
-
+        function toggleStyle(element, klasse) {
+            var isChecked = element.checked;
+            selected.classList.toggle(klasse, isChecked);
         }
 
-        function toggleStyle2() {
-            var isChecked2 = document.getElementById("chk2").checked;
-            document.getElementById("stil2").classList.toggle("stilig2", isChecked2);
+        function selectedDiv(element) {
+            selected = element;
 
-            classList.contains()
-            document.getElementById('chk').checked =
-                selectedDiv.classList.contains('stil');
+            document.getElementById('chk').checked = element.classList.contains('chk');
+            document.getElementById('chk2').checked = element.classList.contains('chk2');
+            document.getElementById('chk3').checked = element.classList.contains('chk3');
+            document.getElementById('chk4').checked = element.classList.contains('chk4');
+            document.getElementById('chk5').checked = element.classList.contains('chk5');
 
-            classList.contains2()
-            document.getElementById('chk2').checked =
-                selectedDiv.classList.contains('stil2');
         }
     </script>
 </body>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+<body>
+    <p>Ferdighet 9d - Valgsetninger - Sammenligne flere ting på en gang (og)</p>
+    <div id="info"></div>
+    <ul>
+        <li>Endre på tekstene!</li>
+        <li>Prøv også å fylle ut tall: 11, 101, 102</li>
+    </ul>
+    <input type="text" id="txt1" oninput="findFirst()" value="Per" /><br />
+    <input type="text" id="txt2" oninput="findFirst()" value="Pål" /><br />
+    <input type="text" id="txt3" oninput="findFirst()" value="Espen" /><br />
+    <script>
+        var infoDiv = document.getElementById('info');
+        var infoDiv2 = document.getElementById('info2');
+        var infoDiv2 = document.getElementById('info3');
+        var txtDiv1 = document.getElementById('txt1');
+        var txtDiv2 = document.getElementById('txt2');
+        var txtDiv3 = document.getElementById('txt3');
+
+
+        findFirst();
+
+        function findFirst() {
+            var txt1 = txtDiv1.value;
+            var txt2 = txtDiv2.value;
+            var txt3 = txtDiv3.value;
+            var to = " Nummer 2 er:";
+            var tre = " Nummer 3 er:";
+            infoDiv.innerHTML = 'Om vi sorterer de tre tekstene, er denne den første:<br/>';
+            //tekst 1 er før tekst 2 OG tekst 1 er før tekst 3 (under)
+            if (txt1 <= txt2 && txt1 <= txt3 && txt3 <= txt2) {
+                infoDiv.innerHTML += txt1 + to + txt2 + tre + txt3;
+            } else if (txt1 <= txt2 && txt1 && txt3 <= txt2) {
+                infoDiv.innerHTML += txt1 + to + txt3 + tre + txt2;
+
+            } else if (txt2 <= txt3 && txt3 <= txt1) {
+                infoDiv.innerHTML += txt2 + to + txt3 + tre + txt1;
+            } else if (txt2 <= txt3 && txt1 <= txt3) {
+                infoDiv.innerHTML += txt2 + to + txt1 + tre + txt3;
+            } else if (txt2 <= txt1) {
+                infoDiv.innerHTML += txt3 + to + txt2 + tre + txt1;
+            } else if (txt1 <= txt2) {
+                infoDiv.innerHTML += txt3 + to + txt1 + tre + txt2;
+            } else {}
+            infoDiv.innerHTML += "";
+        }
+    </script>
+</body>
+
+</html>

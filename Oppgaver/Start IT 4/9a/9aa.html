@@ -7,24 +7,25 @@
     <title></title>
 </head>
 
+
 <body>
-
-    <p>Boks A</p>
-    <input id="divA" type="range" min="1" max="100" step="1" oninput="kalkuler()" value="2" />
-    <p>Boks B</p>
-    <input id="divB" type="range" min="1" max="100" step="1" oninput="kalkuler()" value="2" />
-
-
-    <div id="A"></div>
-    <div id="B"></div>
     <div id="sizeCompareDiv"></div>
+    <p>Boks A</p>
+    <input id="divAA" type="range" min="1" max="100" step="1" oninput="kalkuler()" value="2" />
+    <p>Boks B</p>
+    <input id="divBB" type="range" min="1" max="100" step="1" oninput="kalkuler()" value="2" />
+
+
+    <div id="A" onclick="kalkuler();"></div>
+    <br/>
+    <div id="B" onclick="kalkuler();"></div>
+
 
     <script>
-
         var resultatA = document.getElementById("A");
         var resultatB = document.getElementById("B");
-        var divAinput = document.getElementById("divA");
-        var divBinput = document.getElementById("divB");
+        var divAinput = document.getElementById("divAA");
+        var divBinput = document.getElementById("divBB");
         var size = document.getElementById("sizeCompareDiv");
         kalkuler();
 
@@ -32,21 +33,29 @@
             var divA = parseInt(divAinput.value);
             var divB = parseInt(divBinput.value);
             size.innerHTML = "";
-            var arealA = divA * divB;
-            var arealB = divB * divA;
+            var bakgrunn1 = "background-color: lightgreen;";
+            var høyde1 = "height" + divA + "px;";
+            var bredde1 = "width" + divA + "px;";
+            var stil1 = "style='" + bakgrunn1 + høyde1 + bredde1 + '"';
+            var areal1 = divA * divA;
+            A.innerHTML = "<div " + stil1 + ">" + "Areal boks A =" + areal1 + " px" + "</div>";
+            var bakgrunn2 = "background-color: lightblue;";
+            var høyde2 = "height" + divB + "px;";
+            var bredde2 = "width" + divB + "px;";
+            var stil2 = "style='" + bakgrunn2 + høyde2 + bredde2 + '"';
+            var areal2 = divB * divB;
 
-           if (divA > divB) {
-               size.innerHTML = "Boks A har størst areal";
-           }
-           if (divA < divB)  {
-               size.innerHTML = "Boks B har størst areal";
-
-               if (divA == divB) {
-                   size.innerHTML = "Boksene er like store";
-               }
-           }
+            B.innerHTML = "<div " + stil2 + ">" + "Areal boks A =" + areal2 + " px" + "</div>";
+            if (divA > divB) {
+                size.innerHTML = "Boks A har størst areal";
+            }
+            if (divA < divB) {
+                size.innerHTML = "Boks B har størst areal";
+            }
+            if (divA == divB) {
+                size.innerHTML = "Boksene er like store";
+            }
         }
-
     </script>
 </body>
 
