@@ -1,0 +1,80 @@
+<html>
+
+<head>
+    <title></title>
+</head>
+<style>
+    div {
+        font-size: 25px;
+        text-align: center;
+        background-color: lightgreen;
+        border: solid 1px rgba(144, 238, 144, 0.658);
+        padding: 15px;
+        margin: 10px;
+    }
+    
+    h3 {
+        font-size: 25px;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <h3 id="hovedstad">Hva heter hovedstaden i Norge?</h3>
+    <div id="Larvik">Larvik</div>
+    <div id="Oslo">Oslo</div>
+    <div id="Sandefjord">Sandefjord</div>
+
+    <script>
+        var svar = 0;
+
+        document.getElementById("Larvik").onclick = function() {
+            minFunksjon()
+        };
+
+        function minFunksjon() {
+            document.getElementById("Larvik").innerHTML = "Svaret er feil!";
+            svar++;
+            if (svar > 0) {
+                document.getElementById("Oslo").style.pointerEvents = "none";
+                document.getElementById("Sandefjord").style.pointerEvents = "none";
+
+            }
+        }
+
+
+        document.getElementById("Oslo").onclick = function() {
+            minFunksjon2()
+        };
+
+        function minFunksjon2() {
+            document.getElementById("Oslo").innerHTML = "Svaret er riktig!"
+            svar++;
+            if (svar > 0) {
+                document.getElementById("Larvik").style.pointerEvents = "none";
+                document.getElementById("Sandefjord").style.pointerEvents = "none";
+
+            }
+        }
+
+
+        document.getElementById("Sandefjord").onclick = function() {
+            minFunksjon3()
+
+        };
+
+        function minFunksjon3() {
+            document.getElementById("Sandefjord").innerHTML = "Svaret er feil!"
+            svar++;
+            if (svar > 0) {
+                document.getElementById("Oslo").style.pointerEvents = "none";
+                document.getElementById("Larvik").style.pointerEvents = "none";
+
+
+            }
+        }
+    </script>
+</body>
+
+
+</html>
