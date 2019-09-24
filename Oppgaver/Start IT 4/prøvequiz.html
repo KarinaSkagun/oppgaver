@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <title>Quiz</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <h3>Hva heter hovedstaden i Norge?</h3>
+    <div id="svar"></div>
+    </br>
+    <div id="larvik">Larvik</div>
+    <div id="oslo">Oslo</div>
+    <div id="sandefjord">Sandefjord</div>
+
+    <script>
+        document.getElementById("larvik").onclick = function() {
+            endreSvar();
+        }
+
+        function endreSvar() {
+            document.getElementById("svar").innerHTML = "Svaret er feil!"
+        }
+        document.getElementById("oslo").onclick = function() {
+            endreSvar2();
+        }
+
+        function endreSvar2() {
+            document.getElementById("svar").innerHTML = "Svaret er riktig!";
+        }
+        document.getElementById("sandefjord").onclick = function() {
+            endreSvar3();
+        }
+
+        function endreSvar3() {
+            document.getElementById("svar").innerHTML = "Svaret er feil!";
+        }
+    </script>
+</body>
+
+</html>
