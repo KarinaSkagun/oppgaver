@@ -25,7 +25,7 @@
         <option value="blue">Blue color</option>
     </select>
 
-    <select id="rammeVelger" onchange="showDiv()">
+    <select id="velgRamme" onchange="showDiv()">
         <option value="black">Svart Ramme</option>
         <option value="grey">Grå Ramme</option>
 		<option value="red">Rød Ramme</option>
@@ -36,11 +36,7 @@
     <div id="resultat"></div>
     <div id="resultatHtml" style="font-family: monospace"></div>
 
-    <select onchange="nyRamme()" id="stil"></select>
-    <option value="solid">Solid</option>
-    <option value="dashed">Dashed</option>
-    <option value="dotted">Dotted</option>
-    </selected>
+
 
     <div id="boksen"></div>
 
@@ -50,8 +46,10 @@
         var sizeSlider = document.getElementById('sizeSlider');
         var textInput = document.getElementById('textInput');
         var colorChooser = document.getElementById('colorChooser');
+
         var velgRamme = document.getElementById("velgRamme");
         var rundRamme = document.getElementById("rundRamme");
+
         var boks = document.getElementById("boksen");
         var drop = document.getElementById("stil");
         showDiv();
@@ -60,6 +58,7 @@
             resultatDiv.innerHTML = '<div style="background-color: ' + colorChooser.value +
                 ';width: ' +
                 sizeSlider.value + 'px;height: ' + sizeSlider.value +
+
                 'px;border: 2px dashed ' + velgRamme.value +
                 ';border-radius: ' + rundRamme.value + 'px;">' +
 

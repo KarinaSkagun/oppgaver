@@ -1,16 +1,134 @@
-<html>
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-
+    <meta charset="utf-8" />
+    <title></title>
 </head>
 <style>
-
+    body {
+        padding: 0;
+        margin: 0;
+    }
+    
+    div.page {
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        grid-template-rows: 100px 40px 1fr 40px;
+        grid-template-areas: "header header" "menu menu" "mainContent mainContent " "footer footer";
+    }
+    
+    div.header {
+        background-color: grey;
+        grid-area: header;
+    }
+    
+    div.menu {
+        background-color: darkgrey;
+        grid-area: menu;
+    }
+    
+    div.mainContent {
+        background-color: lightgrey;
+        grid-area: mainContent;
+    }
+    
+    div.footer {
+        background-color: lightblue;
+        grid-area: footer;
+    }
+    
+    @media only screen and (max-width: 600px) {
+        div.page {
+            grid-template-columns: 1fr;
+            grid-template-rows: 100px 10fr 4fr 30px;
+            grid-template-areas: "header" "menu" "mainContent" "footer";
+        }
+    }
+    
+    .stil {
+        font-size: 14px;
+        width: 120px;
+        height: 40px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        background-color: lightblue;
+        border: none;
+        margin: none;
+    }
+    
+    #knapper,
+    .faq,
+    .tips,
+    .kontakt {
+        font-size: 14px;
+        width: 100px;
+        height: 40px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        background-color: lightblue;
+        margin: none;
+        border: none;
+    }
+    
+    .option {
+        padding: 0px 60px 0px 60px;
+    }
+    
+    .overskrift {
+        font-size: 75px;
+        text-align: center;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    
+    .dessertopp {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align: center;
+    }
 </style>
 
+
 <body>
-    <h1>DESSERT</h1>
 
 
+    <div class="page">
+        <div class="header">
+            <div class="overskrift">Matblogg</div>
+        </div>
+        <div class="menu">
+            <button id="knapper">HJEM</button>
+            <select class="stil " onchange="valg(this)">
+                <option >OPPSKRIFTER</option>
+                
+                <option>LUNSJ</option>
+                <option>MIDDAG</option>
+                <option>DESSERT</option>
+</select>
+            <button class="faq">FAQ</button>
+            <button class="tips">TIPS</button>
+            <button class="kontakt">KONTAKT</button>
+
+        </div>
+        <div class="mainContent">
+            <h1 class="dessertopp">Dessert oppskrifter</h1>
+        </div>
+        <div class="footer">Footer</div>
+
+        <script>
+            function valg(element) {
+                if (element.value == "LUNSJ") {
+                    window.location.href = "lunsj.html";
+                } else if (element.value == "MIDDAG") {
+                    window.location.href = "middag.html";
+                } else if (element.value == "DESSERT") {
+                    window.location.href = "dessert.html";
+                }
+
+            }
+            document.getElementById("knapper").onclick = function() {
+                location.href = "oppskrifter-ferdig.html"
+            };
+        </script>
 </body>
 
 </html>
