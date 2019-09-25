@@ -24,8 +24,6 @@
         .boks {
             clear: left;
         }
-        
-        
     </style>
     <div>Her vises tallene du trykker på: </div>
     <div id="output"></div>
@@ -49,22 +47,25 @@
 
 
     <script>
+        var tall = "";
+        var text = document.getElementById("tallBoks");
+
         function display(boks1) {
             var nr1 = document.getElementById('output').innerHTML += boks1;
         }
 
-        var tall = "";
-        var text = document.getElementById("tallBoks");
+
 
         function display(knapp) {
-            if (tall.length == 4) {
+            if (tall == "8521") {
+                clear();
+                text.innerHTML = "Låsen er åpnet!";
+
+            } else if (tall.length == 4) {
                 clear();
                 text.innerHTML = "Feil kode!"
             } else if (knapp == "OK") {
-                if (tall == "8521") {
-                    clear();
-                    text.innerHTML = "Låsen er åpnet!";
-                }
+
             } else {
                 tall += knapp;
                 text.innerHTML = tall;
