@@ -60,7 +60,7 @@
     
     #knapper,
     .faq,
-    .tips,
+    #tips,
     .kontakt {
         font-size: 14px;
         width: 100px;
@@ -108,8 +108,8 @@
                 <option>MIDDAG</option>
                 <option>DESSERT</option>
 </select>
+            <button id="tips">TIPS</button>
             <button class="faq">FAQ</button>
-            <button class="tips">TIPS</button>
             <button class="kontakt">KONTAKT</button>
 
         </div>
@@ -131,6 +131,10 @@
             }
             document.getElementById("knapper").onclick = function() {
                 location.href = "oppskrifter-ferdig.html"
+
+            };
+            document.getElementById("tips").onclick = function() {
+                location.href = "tips.html"
             };
         </script>
 </body>
