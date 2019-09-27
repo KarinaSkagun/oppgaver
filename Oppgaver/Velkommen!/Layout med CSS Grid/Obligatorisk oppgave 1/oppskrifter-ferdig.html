@@ -56,11 +56,12 @@
         background-color: lightblue;
         border: none;
         margin: none;
+        cursor: pointer;
     }
     
-    .knapper,
+    #knapper,
     .faq,
-    .tips,
+    #tips,
     .kontakt {
         font-size: 14px;
         width: 100px;
@@ -80,6 +81,25 @@
         text-align: center;
         font-family: 'Courier New', Courier, monospace;
     }
+    
+    #knapper {
+        cursor: pointer;
+    }
+    
+    h3 {
+        text-align: center;
+        font-size: 45px;
+    }
+    
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    #tips {
+        cursor: pointer;
+    }
 </style>
 
 
@@ -91,23 +111,41 @@
             <div class="overskrift">Matblogg</div>
         </div>
         <div class="menu">
-            <button class="knapper">HJEM</button>
+            <button id="knapper">HJEM</button>
             <select class="stil " onchange="valg(this)">
-                <option >OPPSKRIFTER</option>
+                <option>OPPSKRIFTER</option>
                 
                 <option>LUNSJ</option>
                 <option>MIDDAG</option>
                 <option>DESSERT</option>
 </select>
+            <button id="tips">TIPS</button>
             <button class="faq">FAQ</button>
-            <button class="tips">TIPS</button>
             <button class="kontakt">KONTAKT</button>
 
         </div>
-        <div class="mainContent">MainContent</div>
+        <div class="mainContent">
+            <h3 id="trykk">Trykk her for litt matinspirasjon!</h3>
+            <img src="bilder/inspirasjon.jpg" class="center">
+
+
+        </div>
         <div class="footer">Footer</div>
 
         <script>
+            document.getElementById("trykk").onclick = function() {
+                minFunksjon()
+            };
+            document.getElementById("tips").onclick = function() {
+                location.href = "tips.html"
+            };
+
+            function minFunksjon() {
+                document.getElementById("trykk").innerHTML = "Trykk på oppskrifter!";
+            }
+
+
+
             function valg(element) {
                 if (element.value == "LUNSJ") {
                     window.location.href = "lunsj.html";

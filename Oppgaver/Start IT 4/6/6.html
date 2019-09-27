@@ -20,25 +20,26 @@
 
 
     <select id="colorChooser" onchange="showDiv()">
-        <option value="red">Red color</option>
-        <option selected value="green">Green color</option>
-        <option value="blue">Blue color</option>
+        <option value="lightblue">Lys blå</option>
+        <option selected value="lightpink">Lys rosa</option>
+        <option value="lightgreen">Lys grønn</option>
     </select>
 
     <select id="velgRamme" onchange="showDiv()">
-        <option value="black">Svart Ramme</option>
-        <option value="grey">Grå Ramme</option>
-		<option value="red">Rød Ramme</option>
+        <option value="purple">Lilla Ramme</option>
+        <option value="yellow">Gul Ramme</option>
+		<option value="pink">Rosa Ramme</option>
         <option selected value="none">Ingen Ramme</option>
     </select>
 
 
     <div id="resultat"></div>
+    </br>
     <div id="resultatHtml" style="font-family: monospace"></div>
 
-
-
     <div id="boksen"></div>
+
+
 
     <script>
         var resultatDiv = document.getElementById('resultat');
@@ -59,7 +60,7 @@
                 ';width: ' +
                 sizeSlider.value + 'px;height: ' + sizeSlider.value +
 
-                'px;border: 2px dashed ' + velgRamme.value +
+                'px;border: 3px solid ' + velgRamme.value +
                 ';border-radius: ' + rundRamme.value + 'px;">' +
 
                 textInput.value + '</div>';

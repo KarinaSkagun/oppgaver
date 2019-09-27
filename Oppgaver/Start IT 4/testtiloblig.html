@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+<body>
+    <style>
+        button {
+            font-size: 25px;
+            float: left;
+            padding: 25px;
+            margin: none;
+            border: black solid 1px;
+        }
+        
+        button.first {
+            clear: left;
+        }
+        
+        .boks {
+            clear: left;
+        }
+        
+        div {
+            font-size: 25px;
+        }
+        
+        button {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    <div>Trykk på knappen 10 ganger og se hva som skjer! </div>
+    <div id="output"></div>
+
+    <br />
+    <p id="tallBoks"></p>
+    <button onclick="display(this)">Trykk</button>
+
+    <script>
+        var tall = 0;
+        var text = document.getElementById("tallBoks");
+
+        function display(boks1) {
+            var nr1 = document.getElementById('output').innerHTML += boks1;
+        }
+
+
+        function display(knapp) {
+            if (tall == 9) {
+                clear();
+                text.innerHTML = "<img width='600px' src='C:\\Users\\GET Academy Student\\Desktop\\GET\\oppgaver\\Oppgaver\\Velkommen!\\Layout med CSS Grid\\Obligatorisk oppgave 1\\bilder\\salat.jpg'>";
+
+            } else {
+                tall++;
+                text.innerHTML = "";
+            }
+            knapp.innerHTML = tall;
+        }
+
+        function clear() {
+            tall = 0;
+        }
+    </script>
+</body>
+
+</html>

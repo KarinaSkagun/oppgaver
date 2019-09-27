@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="utf-8" />
     <title></title>
@@ -11,12 +12,13 @@
         }
     </style>
 </head>
+
 <body>
     <p>Ferdighet 9c - Valgsetninger - Sammenligne to objekter (f.eks. er det samme div-element i to elementer?)</p>
     <div id="a" onclick="doClick(this)" style="background-color: pink">A</div>
     <div id="b" onclick="doClick(this)" style="background-color: lightgreen">B</div>
     <div id="c" onclick="doClick(this)" style="background-color: lightblue">C</div>
-    <div id="info"  onclick="doClick(this)">Tykk på en firkant!</div>
+    <div id="info" onclick="doClick(this)">Trykk på en firkant!</div>
 
     <script>
         var infoDiv = document.getElementById('info');
@@ -24,15 +26,54 @@
         var divB = document.getElementById('b');
         var divC = document.getElementById('c');
         var buttonLastClicked;
+
+        var buttonBeforeLastClicked;
+        var numberClicksA = 0;
+        var numberClicksB = 0;
+        var numberClicksC = 0;
+
+
+
         function doClick(buttonClicked) {
             infoDiv.innerHTML = 'Du trykket på firkant ';
-            if (buttonClicked == divA) infoDiv.innerHTML += 'A';
-            else if (buttonClicked == divB) infoDiv.innerHTML += 'B';
-            else if (buttonClicked == divC) infoDiv.innerHTML += 'C';
-            if (buttonLastClicked == buttonClicked)
-                infoDiv.innerHTML += ' (samme som forrige gang)';
+
+            if (buttonClicked == divA) {
+                infoDiv.innerHTML += 'A';
+                numberClicksA++;
+            } else if (buttonClicked == divB) {
+                infoDiv.innerHTML += 'B';
+                numberClicksB++;
+            } else if (buttonClicked == divC) {
+                infoDiv.innerHTML += 'C';
+                numberClicksC++;
+
+            }
+
+
+            if (buttonLastClicked == buttonClicked && numberClicksA == 3 || numberClicksB == 3 || numberClicksC == 3) {
+                infoDiv.innerHTML += "</br>(Dette er tredje gang du har trykket!)"
+            }
+            if (numberClicksA == 3) {
+                numberClicksA == 0;
+            }
+            if (numberClicksB == 3) {
+                numberClicksB == 0;
+            }
+            if (numberClicksC == 3) {
+                numberClicksC == 0;
+            } else if (buttonLastClicked = buttonBeforeLastClicked && numberClicksA == 2 || numberClicksB == 2 || numberClicksC == 2) {
+
+                infoDiv.innerHTML += "</br>(Du har trykket to ganger på samme div!)"
+            }
+
+
+
+
             buttonLastClicked = buttonClicked;
+            buttonBeforeLastClicked == buttonLastClicked;
+
         }
     </script>
 </body>
+
 </html>

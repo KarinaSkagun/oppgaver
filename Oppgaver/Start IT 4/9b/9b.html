@@ -20,12 +20,16 @@
         button.first {
             clear: left;
         }
+        
+        .boks {
+            clear: left;
+        }
     </style>
-    <div id="tall">Her vises tallene du trykker på: </div>
+    <div>Her vises tallene du trykker på: </div>
     <div id="output"></div>
 
-    <br/>
-
+    <br />
+    <p id="tallBoks"></p>
     <button onclick="display(this.innerHTML)">1</button>
     <button onclick="display(this.innerHTML)">2</button>
     <button onclick="display(this.innerHTML)">3</button>
@@ -38,10 +42,38 @@
     <button onclick="display(this.innerHTML)">8</button>
     <button onclick="display(this.innerHTML)">9</button>
 
+    <button class="boks" onclick="display(this.innerHTML)">OK</button>
+
+
+
     <script>
+        var tall = "";
+        var text = document.getElementById("tallBoks");
+
         function display(boks1) {
-            var nr1 = document.getElementById('tall');
-            document.getElementById('output').innerHTML += boks1;
+            var nr1 = document.getElementById('output').innerHTML += boks1;
+        }
+
+
+
+        function display(knapp) {
+            if (tall == "8521") {
+                clear();
+                text.innerHTML = "Låsen er åpnet!";
+
+            } else if (tall.length == 4) {
+                clear();
+                text.innerHTML = "Feil kode!"
+            } else if (knapp == "OK") {
+
+            } else {
+                tall += knapp;
+                text.innerHTML = tall;
+            }
+        }
+
+        function clear() {
+            tall = "";
         }
     </script>
 </body>
