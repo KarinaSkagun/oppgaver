@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    #velgFarge {
+        height: 100px;
+        width: 100px;
+        border: 1px solid black;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div id="velgFarge"></div>
+    </br>
+    <select class="farger" onchange="fargeValg(this)">
+
+    <option value="white">Velg farge</option>
+    <option value="black">Svart</option>
+    <option value="darkblue">Mørkblå</option>
+    <option value="lightgrey">Lysgrå</option>
+    <option value="lightgreen">Lysgrønn</option>
+    <option value="rgb(255, 128, 128)">Lysrød</option>
+
+</select>
+
+
+
+    <script>
+        function fargeValg(element) {
+            if (element.value == "black") {
+                document.getElementById("velgFarge").style.backgroundColor = "black";
+                document.getElementById("velgFarge").style.color = "white";
+                document.getElementById("velgFarge").innerHTML = "Hvit tekst";
+
+            } else if (element.value == "darkblue") {
+                document.getElementById("velgFarge").style.backgroundColor = "darkblue";
+                document.getElementById("velgFarge").style.color = "white";
+                document.getElementById("velgFarge").innerHTML = "Hvit tekst";
+
+            } else if (element.value == "lightgrey") {
+                document.getElementById("velgFarge").style.backgroundColor = "lightgrey";
+                document.getElementById("velgFarge").style.color = "black";
+                document.getElementById("velgFarge").innerHTML = "Svart tekst";
+
+            } else if (element.value == "lightgreen") {
+                document.getElementById("velgFarge").style.backgroundColor = "lightgreen";
+                document.getElementById("velgFarge").style.color = "black";
+                document.getElementById("velgFarge").innerHTML = "Svart tekst";
+
+            } else if (element.value == "rgb(255, 128, 128)") {
+                document.getElementById("velgFarge").style.backgroundColor = "rgb(255, 128, 128)";
+                document.getElementById("velgFarge").style.color = "black";
+                document.getElementById("velgFarge").innerHTML = "Svart tekst";
+            }
+
+
+
+        }
+    </script>
+
+
+</body>
+
+</html>
