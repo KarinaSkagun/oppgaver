@@ -38,6 +38,8 @@
     div.footer {
         background-color: lightblue;
         grid-area: footer;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size:12px;
     }
     
     @media only screen and (max-width: 600px) {
@@ -93,9 +95,6 @@
         margin-right: auto;
     }
     
-    h3 {
-        text-align: center;
-    }
     
     p {
         text-align: center;
@@ -120,15 +119,18 @@
         font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
     
-    h2,
+
     h3 {
+      
         text-align: center;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+        
     }
     
     #ingr {
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-        border: solid 2px darkslategrey;
+        border: solid 2px grey;
         padding: 10px;
         width: auto;
         display: block;
@@ -163,7 +165,7 @@
             <h1 class="lunsjopp">Lunsj oppskrifter</h1>
             <br/>
             <br/>
-            <h2>GRILLET HJERTESALAT MED PARMESANDRESSING OG PARMACHIPS</h2>
+            <h3>GRILLET HJERTESALAT MED PARMESANDRESSING OG PARMACHIPS</h3>
             <img src="bilder/hjertesalat.jpg" width="600px" class="center">
             <p id="hvordan">Norsk hjertesalat er frisk og sprø, og med sin litt søtlige smak er den perfekt å legge på grillen.<br/> Som tilbehør serverer jeg parmesandressing, sprø parmachips og ristede pinjekjerner, en nydelig <br/>kombo! Nyt den alene som forrett
                 eller smårett, eller server den som tilbehør til annen grillmat.</p>
@@ -193,9 +195,12 @@
             <p id="column">3-4 ss extra virigin olivenolje</p>
             <p id="column">flaksalt</p>
 
+           
+           
+
             <br/>
             <br/>
-            <h3>SLIK GJØR DU</h3>
+            <h3 id="ingr">SLIK GJØR DU</h3>
             <img src="bilder/salat.jpg" width="600px" class="center">
 
             <p id="hvordan">Sett stekeovnen på 200 grader, over- og undervarme. Fordel skinkeskivene på et bakepapirkledd<br/> bakebrett og stek dem midt i ovnen i ca. 10 minutter, til de skifter farge og er sprø. Følg med mot <br/> slutten av steketiden. Knekk dem opp
@@ -206,7 +211,7 @@
             <br/>
 
         </div>
-        <div class="footer">Footer</div>
+        <div class="footer"><br> Kilde: https://trinesmatblogg.no/recipe/grillet-hjertesalat-med-parmesandressing-og-parmachips/></div>
 
         <script>
             function valg(element) {

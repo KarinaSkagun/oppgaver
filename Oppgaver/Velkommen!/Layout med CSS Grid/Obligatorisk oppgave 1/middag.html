@@ -38,6 +38,8 @@
     div.footer {
         background-color: lightblue;
         grid-area: footer;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size:12px;
     }
     
     @media only screen and (max-width: 600px) {
@@ -91,9 +93,6 @@
         cursor: pointer;
     }
     
-    h3 {
-        text-align: center;
-    }
     
     p {
         text-align: center;
@@ -108,6 +107,26 @@
     
     #tips {
         cursor: pointer;
+    }
+    #hvordan {
+        font-size: 18px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    h3 {
+        text-align: center;
+        font-size: 20px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    #column {
+        font-size: 18px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    #ingr {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        border: solid 2px grey;
+        padding: 10px;
+        width: auto;
+        display: block;
     }
 </style>
 
@@ -138,48 +157,76 @@
             <h1 class="middagopp">Middag oppskrifter</h1>
             <br/>
             <br/>
-            <h3>GRILLET HJERTESALAT MED PARMESANDRESSING OG PARMACHIPS</h3>
-            <img src="bilder/hjertesalat.jpg" width="600px" class="center">
-            <p>Norsk hjertesalat er frisk og sprø, og med sin litt søtlige smak er den perfekt å legge på grillen.<br/> Som tilbehør serverer jeg parmesandressing, sprø parmachips og ristede pinjekjerner, en nydelig <br/>kombo! Nyt den alene som forrett
-                eller smårett, eller server den som tilbehør til annen grillmat.</p>
-            <h3>INGREDIENSER</h3>
+            <h3>HELSTEKT INDREFILET MED SOMMERSALAT</h3>
+            <img src="bilder/hovedbildekjøtt.jpg" width="600px" class="center">
+            <br>
+            <p id="hvordan">Helstekt indrefilet av storfe, servert på en fargerik sommersalat med mange gode smaker og </br> 
+                med en deilig balsamicodressing som dryppes over. Kjøttet kan tilberedes på grillen eller i <br> 
+                stekeovnen, det er opp til deg. En deilig rett å servere på sommerfesten, som hovedrett eller <br>
+                som en av flere retter på sommerbuffeten.</p>
+            <h3 id="ingr">INGREDIENSER</h3>
             <br/>
 
-            <p id="column">PARMESANDRESSING</p>
+            <p id="column"><b>OKSEFILETEN</b></p>
             <br/>
-            <p id="column">75 g majones</p>
-            <p id="column">2 ss melk</p>
-            <p id="column">1 fedd hvitløk</p>
-            <p id="column">25 g parmesan, finrevet</p>
-            <p id="column">1-1 1/2 ss dijon sennep</p>
-            <p id="column">1/2-1 ss sitronsaft</p>
-            <p id="column">pepper</p>
+            <p id="column">600-700 g oksefilet</p>
+            <p id="column">2-3 ss olivenolje</p>
+            <p id="column">2 fedd hvitløk, finhakket</p>
+            <p id="column">2 kvister timian</p>
+            <p id="column">salt og pepper</p>
             <br/>
 
 
-            <p id="column">HJERTESALAT & TILBEHØR</p>
+            <p id="column"><b>SALATEN</b></p>
             <br/>
-            <p id="column">2 hjertesalat</p>
-            <p id="column">nøytral olje</p>
-            <p id="column">4 skiver parmaskinke</p>
-            <p id="column">2 ss pinjekjerner</p>
-            <p id="column">3-4 ss extra virigin olivenolje</p>
-            <p id="column">flaksalt</p>
+            <p id="column">150 g ruccula eller annen småbladsalat</p>
+            <p id="column">100 g bringebær</p>
+            <p id="column">100 bjørnebær</p>
+            <p id="column">25 g pinjekjerner, ristet</p>
+            <p id="column">parmesan, høvlet</p>
+            </br>
+        
+
+            <p id="column"><b>DRESSING</b></p>
+            <br/>
+            <p id="column">6 ss extra virgin olivenolje</p>
+            <p id="column">3 ss balsamicoeddik , vellagret type</p>
+            <p id="column">salt og pepper</p>
+            
 
             <br/>
             <br/>
-            <h3>SLIK GJØR DU</h3>
-            <img src="bilder/salat.jpg" width="600px" class="center">
+            <h3 id="ingr">SLIK GJØR DU</h3><br>
+            
 
-            <p>Sett stekeovnen på 200 grader, over- og undervarme. Fordel skinkeskivene på et bakepapirkledd<br/> bakebrett og stek dem midt i ovnen i ca. 10 minutter, til de skifter farge og er sprø. Følg med mot <br/> slutten av steketiden. Knekk dem opp
-                i mindre biter og legg på en tallerken.<br/>
-                <br/> Rist pinjekjernene i tørr stekepanne, til de er gylne.<br/>
-                <br/> Rør sammen ingrediensene til parmesandressingen. Smak til med sennep, sitron og nykvernet <br/>sort pepper.</p>
+            <p id="hvordan">La gjerne kjøttet hvile i romtemperatur en times tid før du skal grille det. Gni kjøttet inn <br/> 
+                med olivenolje, salt, pepper, finhakket hvitløk og timian. Grill kjøttet først raskt på en sone <br/>
+                med direkte varme på grillen til det har en fin stekeskorpe over det hele. Legg deretter kjøttet <br>
+                på indirekte varme, til det har en kjernetemperatur på ca. 56 grader. Snu kjøttet ofte. La kjøttet <br>
+                hvile i ca. 15 minutter.</p>
+            <br>
+            <p id="hvordan">Dersom du heller vil steke kjøttet i stekeovnen kan du først steke det raskt i en stekepanne, <br> 
+                til du får en fin stekeskorpe over det hele. Legg deretter kjøttet i en ildfast form og stek det <br> 
+                videre ved 125 grader (over- og undervarme) til du har en kjernetemperatur på ca. 56 grader. <br>
+                La kjøttet hvile i ca. 15 minutter.</p><br>
+
+                <p id="hvordan">
+                Ha salaten på et stort serveringsfat, og fordel bringebær, bjørnebær og ristede pinjekjerner over. <br>
+                Rør sammen olivenolje og balsamico, og smak deg frem til en fin balanse mellom smakene. <br>
+                Smak til med salt og pepper. Ringle ca. halvparten av dressingen over salaten.
+            </p>
+            <br>
+            <p id="hvordan">
+                    Skjær kjøttet i skiver og legg oppå salaten. Fordel litt høvlet parmesan over salaten og server <br>umiddelbart, med resten av dressingen og gjerne litt focaccia ved siden av.
+                </p>
+            
+            
+            
             <br/>
             <br/>
-
+            <img src="bilder/nestebildekjøtt.jpg" width="600px" class="center">
         </div>
-        <div class="footer">Footer</div>
+        <div class="footer">Kilde: https://trinesmatblogg.no/recipe/helstekt-indrefilet-med-sommersalat/</div>
 
         <script>
             function valg(element) {

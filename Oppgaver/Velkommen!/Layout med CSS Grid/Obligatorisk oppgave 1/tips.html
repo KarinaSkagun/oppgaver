@@ -38,6 +38,8 @@
     div.footer {
         background-color: lightblue;
         grid-area: footer;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size:12px;
     }
     
     @media only screen and (max-width: 600px) {
@@ -150,7 +152,7 @@
 
 
         </div>
-        <div class="footer">Footer</div>
+        <div class="footer"><br>By Karina Skagun</div>
 
         <script>
             var tall = 0;
@@ -164,7 +166,7 @@
             function display(knapp) {
                 if (tall == 9) {
                     clear();
-                    text.innerHTML = "<img width='600px' class='midten' src='C:\\Users\\GET Academy Student\\Desktop\\GET\\oppgaver\\Oppgaver\\Velkommen!\\Layout med CSS Grid\\Obligatorisk oppgave 1\\bilder\\salat.jpg'> ";
+                    text.innerHTML = "<img width='600px' class='midten' src=bilder/teller.jpg> ";
                     document.getElementById("knappBorte").innerHTML = "";
                 } else {
                     tall++;
