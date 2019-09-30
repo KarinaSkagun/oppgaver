@@ -13,12 +13,19 @@
     <div id="info" style="padding-bottom: 20px;">Gjør ett valg på hver linje:</div>
 
     Bunn: <input id="tykkBunn" type="radio" name="bunn" onchange="info()" />Tykk
-    <input id="tynnBunn" type="radio" name="bunn" onchange="info()" />Tynn <br /> Fyll: <input id="fyllTaco" type="radio" name="fyll" onchange="info()" />Taco
+    <input id="tynnBunn" type="radio" name="bunn" onchange="info()" />Tynn <br /> 
+    
+    Fyll: <input id="fyllTaco" type="radio" name="fyll" onchange="info()" />Taco
     <input id="fyllKylling" type="radio" name="fyll" onchange="info()" />Kylling
     <input id="fyllPepperoni" type="radio" name="fyll" onchange="info()" />Pepperoni
-    <input id="fyllBiff" type="radio" name="fyll" onchange="info()" />Biff <br /> Størrelse: <input id="stor" type="radio" name="str" onchange="info()" />Stor
+    <input id="fyllBiff" type="radio" name="fyll" onchange="info()" />Biff <br /> 
+    
+    Størrelse: <input id="stor" type="radio" name="str" onchange="info()" />Stor
     <input id="middels" type="radio" name="str" onchange="info()" />Middels
     <input id="liten" type="radio" name="str" onchange="info()" />Liten<br />
+
+    Form: <input id="rund" type="radio" name="frm" onchange="info()"/>Rund
+    <input id="firkantet" type="radio" name="frm" onchange="info()">Firkantet
 
     <button id="bestill" disabled="" onclick="alert('Bestilt!');">Bestill</button>
     <ul>
@@ -37,11 +44,14 @@
         var strStor = document.getElementById('stor');
         var strMiddels = document.getElementById('middels');
         var strLiten = document.getElementById('liten');
+        var rundForm= document.getElementById("rund");
+        var firkantetForm= document.getElementById("firkantet");
 
         function info() {
             if ((bunnTykk.checked || bunnTynn.checked) &&
                 (fyllTaco.checked || fyllKylling.checked || fyllPepperoni.checked || fyllBiff.checked) &&
-                (strStor.checked || strMiddels.checked || strLiten.checked)) {
+                (strStor.checked || strMiddels.checked || strLiten.checked) &&
+                (rundForm.checked || firkantetForm.checked)) {
                 infoDiv.innerHTML = 'Du har fylt ut alt og er klar til å bestille!';
                 btnBestill.disabled = false;
             } else {
@@ -58,6 +68,9 @@
                 }
                 if (!strStor.checked && !strMiddels.checked && !strLiten.checked) {
                     infoDiv.innerHTML += '<li>størrelse</li>';
+                }
+                if (!rundForm.checked && !firkantetForm.checked){
+                    infoDiv.innerHTML += "<li>form</li>";
                 }
             }
         }
