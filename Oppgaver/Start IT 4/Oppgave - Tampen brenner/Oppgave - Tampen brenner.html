@@ -10,12 +10,10 @@
 
 <body>
     <style>
-        #info {
-            background-color: lightcoral;
-        }
+
     </style>
     <div id="info" style="width: 200px;">Finn det hemmelige punktet!</div>
-    <div id="point" style="position: absolute; width: 10px; height: 10px; 
+    <div id="point" style="position: absolute; width: 20px; height: 20px; 
     background-color: orange; display: none"></div>
 
     <script>
@@ -30,13 +28,19 @@
             var dx = x - randomX;
             var dy = y - randomY;
             var distance = Math.sqrt(dx * dx + dy * dy);
-            if (distance < 100) {
-                div.innerText = "Tampen brenner!";
-            }
+
             if (distance < 10) {
-                div.innerText = "Du klarte det! "
+                div.innerText = "Du klarte det!"
                 point.style.display = "block";
 
+            } else if (distance < 100) {
+                div.innerText = "Tampen brenner!";
+                var redAmount = (1 + Math.floor(distance / 7)).toString(16);
+                div.style.backgroundColor = "#ff" + redAmount + redAmount + redAmount + redAmount;
+            } else {
+
+                div.innerText = "Finn det hemmelige punktet!";
+                div.style.backgroundColor = "#ffffff";
             }
         }
 
