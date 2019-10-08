@@ -10,7 +10,8 @@
 
 <body>
     <style>
-        div {
+        #først,
+        #førstPåLinja {
             float: left;
             background-color: bisque;
             padding: 5px;
@@ -24,7 +25,7 @@
             color: rgb(128, 0, 38);
         }
         
-        #først {
+        #førstPåLinja {
             clear: left;
         }
         
@@ -32,31 +33,45 @@
             font-size: 50px;
             color: rgb(128, 0, 38);
         }
+        
+        #info {
+            font-size: 35px;
+            color: rgb(128, 48, 72);
+        }
+        
+        #link {
+            font-size: 30px;
+            color: rgb(128, 0, 38);
+        }
     </style>
 
     <h3 id="overskrift">TIC TAC TOE</h3>
+    <h3 id="info"></h3>
+    <a id="link" href="javascript:restart();"></a>
 
-    <div onclick="trykk(this)"></div>
-    <div onclick="trykk(this)"></div>
-    <div onclick="trykk(this)"></div>
-
-    <div onclick="trykk(this)" id="først"></div>
-    <div onclick="trykk(this)"></div>
-    <div onclick="trykk(this)"></div>
+    </br>
 
     <div onclick="trykk(this)" id="først"></div>
-    <div onclick="trykk(this)"></div>
-    <div onclick="trykk(this)"></div>
+    <div onclick="trykk(this)" id="først"></div>
+    <div onclick="trykk(this)" id="først"></div>
+
+    <div onclick="trykk(this)" id="førstPåLinja"></div>
+    <div onclick="trykk(this)" id="først"></div>
+    <div onclick="trykk(this)" id="først"></div>
+
+    <div onclick="trykk(this)" id="førstPåLinja"></div>
+    <div onclick="trykk(this)" id="først"></div>
+    <div onclick="trykk(this)" id="først"></div>
 
     <script>
-        function trykk(element) {
-            element.innerHTML =
-                "x";
-        }
+        var isGameStopped = false;
 
         function trykk(element) {
-            if (element.innerHTML !== "x" && element.innerHTML !== "o") {
+            if (!isGameStopped &&
+                element.innerHTML !== "x" && element.innerHTML !== "o") {
                 element.innerHTML = "x";
+                checkWinning();
+                if (isGameStopped) return;
 
                 var divs1 = document.getElementsByTagName('div');
                 var divs2 = new Array();
@@ -65,13 +80,57 @@
                         divs2.push(divs1[i]);
                     }
                 }
-
                 if (divs2.length > 0) {
                     var index = Math.floor(Math.random() * divs2.length);
                     divs2[index].innerHTML = 'o';
                     divs2[index].style.color = 'rgb(133, 77, 114) ';
                 }
+                checkWinning();
             }
+        }
+
+        function checkWinning() {
+            checkCombinationForWinning(0, 1, 2);
+            if (isGameStopped) return;
+            checkCombinationForWinning(3, 4, 5);
+            if (isGameStopped) return;
+            checkCombinationForWinning(6, 7, 8);
+            if (isGameStopped) return;
+            checkCombinationForWinning(0, 3, 6);
+            if (isGameStopped) return;
+            checkCombinationForWinning(1, 4, 7);
+            if (isGameStopped) return;
+            checkCombinationForWinning(2, 5, 8);
+            if (isGameStopped) return;
+            checkCombinationForWinning(0, 4, 8);
+            if (isGameStopped) return;
+            checkCombinationForWinning(2, 4, 6);
+
+        }
+
+        function checkCombinationForWinning(index1, index2, index3) {
+            var divs = document.getElementsByTagName('div');
+            var content1 = divs[index1].innerHTML;
+            var content2 = divs[index2].innerHTML;
+            var content3 = divs[index3].innerHTML;
+
+            if ((content1 === "x" || content1 === "o") &&
+                content2 === content1 &&
+                content3 === content1) {
+
+
+                //Hvem vant?
+                var winner = content1 === "x" ? "Du" : "Datamaskinen";
+                document.getElementById("info").innerHTML = winner + " vant!";
+                document.getElementById("link").innerHTML = "Klikk her for å starte på nytt!";
+
+                //Stoppe spillet
+                isGameStopped = true;
+            }
+        }
+
+        function restart() {
+            location.reload();
         }
     </script>
 

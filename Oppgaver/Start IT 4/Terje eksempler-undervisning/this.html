@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="a" onclick="trykk()">A</div>
+    <button id="b" onclick="trykk(this)">B</button>
+    <h1 id="c" onclick="trykk(this)">C</h1>
+    <b id="d" onclick="trykk(this)">D</b>
+    <i id="d" onclick="trykk(this)">E</i>
+
+    <button onclick="divSomBleKlikketPåForrigeGang.style.backgroundColor = 'green'">+</button>
+
+    <script>
+        var divA = document.getElementById('a');
+        var divB = document.getElementById('b');
+        var divC = document.getElementById('c');
+        var divD = document.getElementById('d');
+        var divSomBleKlikketPåForrigeGang;
+
+        function trykk(divSomBleKlikketPå) {
+            if (divSomBleKlikketPåForrigeGang != undefined) {
+                divSomBleKlikketPåForrigeGang.style.border = 'none';
+            }
+            divSomBleKlikketPå.style.border = 'solid 1px darkblue';
+
+            if (divSomBleKlikketPå == divA) {
+                console.log('A');
+            } else if (divSomBleKlikketPå == divB) {
+                console.log('B');
+            } else if (divSomBleKlikketPå == divC) {
+                console.log('C');
+            } else if (divSomBleKlikketPå == divD) {
+                console.log('D');
+            } else {
+                console.log('ikke A, B, C eller D');
+            }
+
+            divSomBleKlikketPåForrigeGang = divSomBleKlikketPå;
+        }
+    </script>
+</body>
+</html>
