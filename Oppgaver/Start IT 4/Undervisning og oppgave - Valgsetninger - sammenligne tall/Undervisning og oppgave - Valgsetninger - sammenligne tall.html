@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        div {
+            background-color: aquamarine;
+            border: greenyellow solid 1px;
+            font-size: 300%;
+        }
+    </style>
+    <div id="info"></div>
+
+
+    <script>
+        /*   Valgsetninger
+                                                -for eksempel basert på å sammenligne tall
+                                                -generelt: en logisk verdi (av typen "boolean")
+                                                -flere betingelser sammen: OG, ELLER, IKKE, ER-LIK, ER-ULIK
+                                                -hvis (if) - ellers (else)
+                                                -ellers - hvis (else if)
+                                            Datatyper
+                                                -tekst
+                                                -tall
+                                                -logisk */
+
+
+        var greaterThanSymbol = "&gt;"; //gt står for "greater than"
+        var smallerThanSymbol = "&lt;"; //lt står for "less than"
+
+        window.onresize = windowSizeChanged;
+        windowSizeChanged();
+
+        function windowSizeChanged() {
+            var div = document.getElementById("info");
+            var height = window.innerHeight;
+            var width = window.innerWidth;
+            div.innerHTML = width + "x" + height;
+            var totalPixelCount = height * width;
+
+            if (totalPixelCount > 1000000) {
+                div.innerHTML += " " + greaterThanSymbol + "1M megapixel";
+            } else if (totalPixelCount > 500000) {
+                div.innerHTML += " " + greaterThanSymbol + "1/2 megapixel";
+            } else if (totalPixelCount > 250000) {
+                div.innerHTML += " " + greaterThanSymbol + "1/4M megapixel";
+            } else if (totalPixelCount > 125000) {
+                div.innerHTML += " " + greaterThanSymbol + "1/8M megapixel";
+            } else {
+                div.innerHTML += " " + smallerThanSymbol + " 1/8M megapixel";
+            }
+
+            totalPixelCount = Math.floor(totalPixelCount / 1000);
+            div.innerHTML += "(" + totalPixelCount + "k)"
+
+            div.innerHTML += "</br>";
+
+            if (width < 300 & height > 600) {
+                div.innerHTML += "Høy og smal";
+            }
+            if (width > 1200 | height > 600) {
+                div.innerHTML += " stor bredde og/eller høyde";
+            }
+            if (width !== height) {
+                div.innerHTML += "ikke lik høyde og bredde!";
+            }
+
+
+        }
+    </script>
+
+</body>
+
+</html>

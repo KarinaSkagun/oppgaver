@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Reaksjonstid</title>
+</head>
+<style>
+    div.lamp {
+        background-color: rgb(238, 206, 211);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 4px solid rgb(196, 141, 196);
+        float: left;
+        padding: 5px;
+        margin: 4px;
+        cursor: pointer;
+    }
+    
+    div.lightOn {
+        background-color: yellow;
+    }
+    
+    .first {
+        clear: left;
+    }
+</style>
+<div id="info"></div>
+</br>
+
+<body>
+    <div onclick="turnOff(this)" class="lamp first"></div>
+    <div onclick="turnOff(this)" class="lamp"></div>
+    <div onclick="turnOff(this)" class="lamp"></div>
+    <div onclick="turnOff(this)" class="lamp"></div>
+    <div onclick="turnOff(this)" class="lamp"></div>
+
+    <div onclick="turnOff(this)" class="lamp first"></div>
+    <div onclick="turnOff(this)" class="lamp"></div>
+    <div onclick="turnOff(this)" class="lamp"></div>
+    <div onclick="turnOff(this)" class="lamp"></div>
+    <div onclick="turnOff(this)" class="lamp"></div>
+
+    <div onclick="turnOff(this)" class="lamp first"></div>
+    <div onclick="turnOff(this)" class="lamp"></div>
+    <div onclick="turnOff(this)" class="lamp"></div>
+    <div onclick="turnOff(this)" class="lamp"></div>
+    <div onclick="turnOff(this)" class="lamp"></div>
+
+    <div onclick="turnOff(this)" class="lamp first"></div>
+    <div onclick="turnOff(this)" class="lamp"></div>
+    <div onclick="turnOff(this)" class="lamp"></div>
+    <div onclick="turnOff(this)" class="lamp"></div>
+    <div onclick="turnOff(this)" class="lamp"></div>
+
+    <div onclick="turnOff(this)" class="lamp first"></div>
+    <div onclick="turnOff(this)" class="lamp"></div>
+    <div onclick="turnOff(this)" class="lamp"></div>
+    <div onclick="turnOff(this)" class="lamp"></div>
+    <div onclick="turnOff(this)" class="lamp"></div>
+
+
+
+    <script>
+        var startTime = new Date().getTime();
+
+        turnOnRandom();
+
+        function turnOnRandom() {
+            var elementsList = document.getElementsByClassName("lamp");
+            var randomIndex = Math.floor(Math.random() * elementsList.length);
+            var selectedElement = elementsList[randomIndex];
+            var selectedElementClassList = selectedElement.classList;
+            selectedElementClassList.add("lightOn");
+        }
+
+        function turnOff(selectedElement) {
+
+            var selectedElementClassList = selectedElement.classList;
+            if (selectedElementClassList.contains("lightOn")) {
+                var finishTime = new Date().getTime();
+                var spentMilliseconds = Math.floor(finishTime - startTime);
+                var spentSeconds = spentMilliseconds / 1000;
+                document.getElementById("info").innerHTML = "Du brukte " + spentSeconds + " sekunder.";
+                startTime = new Date().getTime();
+                selectedElementClassList.remove("lightOn");
+                turnOnRandom();
+            }
+        }
+    </script>
+</body>
+
+
+
+
+</html>

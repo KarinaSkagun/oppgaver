@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .effekt1{
+            background-color: forestgreen;
+        }
+        .effekt2{
+            border: dashed 2px orange;
+        }
+        .effekt3{
+            border-radius: 25%;
+        }
+    </style>
+</head>
+<body>
+    <select id="effekt">
+        <option>effekt1</option>
+        <option>effekt2</option>
+        <option>effekt3</option>
+    </select>
+
+    <div id="main">lsdkjgflskxdjhgflksdfjh lh lfdkj lkjdf lgkj dflkjg lkjh </div>
+    <button onclick="main.classList.add(effekt.value)">Skru på</button>
+    <button onclick="main.classList.remove(effekt.value)">Skru av</button>
+    <button onclick="main.classList.toggle(effekt.value)">Toggle</button>
+
+
+    <script>
+        var effekt = document.getElementById('effekt');
+        var main = document.getElementById('main');
+    </script>
+</body>
+</html>
