@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 99d61dec8d6415855a32f9d09a9260da62b2f740
 <head>
     <meta charset="utf-8" />
     <title></title>
 </head>
+<<<<<<< HEAD
 <body>
     <p>Ferdighet 10 - Funksjoner med parametre - synlig resultat </p>
     <button onclick="showDiv(500, 500, 'Alternativ 1', 'lightblue')">Alternativ 1</button>
@@ -24,4 +29,22 @@
         }
     </script>
 </body>
+=======
+
+<body onload="testEvents('<li>onload</li>')">
+    <p>Ferdighet 2a - Alternative eventhandlere: onchange osv.</p>
+    <input type="text" onchange="testEvents('<li>onchange</li>')" oninput="testEvents('<li>oninput</li>')" />
+    <h3 onmouseover="testEvents('<li>onmouseover</li>')" onmouseout="testEvents('<li>onmouseout</li>')">Test test test</h3>
+    <h2 id="info"></h2>
+
+    <a href="https://www.w3schools.com/jsref/dom_obj_event.asp">Mer informasjon her</a>
+    <script>
+        function testEvents(all) { //Samler alle funksjonene ovenefor i èn funksjon. 
+            document.getElementById('info').innerHTML += all;
+
+        }
+    </script>
+</body>
+
+>>>>>>> 99d61dec8d6415855a32f9d09a9260da62b2f740
 </html>
