@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kodelås</title>
+</head>
+<style>
+    button {
+        float: left;
+        font-size: 45px;
+        padding: 30px;
+    }
+    
+    .first {
+        clear: left;
+    }
+    
+    #info {
+        font-size: 25px;
+    }
+    
+    #knapp {
+        clear: left;
+        width: 267px;
+    }
+</style>
+
+<body>
+    <div id="info">Her er tallene du trykker på:</br>
+    </div>
+
+
+
+
+    <button id="button" onclick="display(this.innerHTML)">1</button>
+    <button id="button" onclick="display(this.innerHTML)">2</button>
+    <button id="button" onclick="display(this.innerHTML)">3</button>
+
+    <button id="button" class="first" onclick="display(this.innerHTML)">4</button>
+    <button id="button" onclick="display(this.innerHTML)">5</button>
+    <button onclick="display(this.innerHTML)">6</button>
+
+    <button id="button" class="first" onclick="display(this.innerHTML)">7</button>
+    <button id="button" onclick="display(this.innerHTML)">8</button>
+    <button id="button" onclick="display(this.innerHTML)">9</button>
+
+    <div>
+        <button id="knapp" onclick="display(this.innerHTML)">OK</button>
+    </div>
+
+
+    <script>
+        var tall = "";
+        var text = document.getElementById("info");
+        var canType = true;
+
+        var buttonDisabled = document.getElementById = ("button");
+
+        function display(box) {
+            var boxes = document.getElementById("info").innerHTML += box;
+        }
+
+
+        function display(knapper) {
+            if (tall == "9213") {
+
+                text.innerHTML = "Låsen er åpnet!"
+                buttonDisabled.disabled = true;
+                return false;
+                clear();
+
+
+            } else if (tall.length == 4) {
+
+
+                text.innerHTML = "Koden er feil!"
+                buttonDisabled.disabled = true;
+                return false;
+                clear();
+
+
+            } else if (knapper == "OK") {
+
+            } else {
+                tall += knapper;
+                text.innerHTML = tall;
+            }
+        }
+
+        function clear() {
+            tall = "";
+        }
+    </script>
+
+</body>
+
+</html>
