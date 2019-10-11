@@ -29,11 +29,11 @@
         }
         
         .chk {
-            background-color: rgb(172, 91, 172);
+            background-color:lightcyan;
         }
         
         .chk2 {
-            color: darkviolet;
+            color: darkslateblue;
         }
         
         .chk3 {
@@ -90,6 +90,7 @@
         var selected = document.getElementById("stil");
         var textInput = document.getElementById('text');
         var h2Element = document.getElementById('overskrift');
+var noBorder;
 
         function doSomethingA(clickedElement) {
             textInput.style.backgroundColor = 'aquamarine';
@@ -129,6 +130,12 @@
         }
 
         function selectedDiv(element) {
+            if (noBorder != undefined){
+                noBorder.style.border ="none";
+          
+          
+        }
+        element.style.border = "solid 1px black";
             selected = element;
 
             document.getElementById('chk').checked = element.classList.contains('chk');
@@ -136,7 +143,7 @@
             document.getElementById('chk3').checked = element.classList.contains('chk3');
             document.getElementById('chk4').checked = element.classList.contains('chk4');
             document.getElementById('chk5').checked = element.classList.contains('chk5');
-
+            noBorder = element;
         }
     </script>
 </body>

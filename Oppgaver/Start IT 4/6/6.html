@@ -15,7 +15,7 @@
     <input id="rundRamme" type="range" min="0" max="100" step="10" oninput="showDiv()" />
     <br />
 
-    <input id="textInput" type="text" oninput="showDiv()" value="endre teksten!" />
+    <input id="textInput" type="text" oninput="showDiv()" value= "endre teksten!" />
 
 
 
@@ -32,9 +32,10 @@
         <option selected value="none">Ingen Ramme</option>
     </select>
 
-
+</br>
+</br>
     <div id="resultat"></div>
-    </br>
+   
     <div id="resultatHtml" style="font-family: monospace"></div>
 
     <div id="boksen"></div>
@@ -52,7 +53,7 @@
         var rundRamme = document.getElementById("rundRamme");
 
         var boks = document.getElementById("boksen");
-        var drop = document.getElementById("stil");
+       
         showDiv();
 
         function showDiv() {
