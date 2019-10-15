@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- View -->
+    <button onclick="changeColor(+10,+10,+10)">Mer av alt</button>
+    <button onclick="changeColor(-10,-10,-10)">Mindre av alt</button>
+    <button onclick="changeColor(+10,0,0)">Mer rødt</button>
+    <button onclick="changeColor(-10,0,0)">Mindre rødt</button>
+    <button onclick="changeColor(0,+10,0)">Mer grønt</button>
+    <button onclick="changeColor(0,-10,0)">Mindre grønt</button>
+    <button onclick="changeColor(0,0,+10)">Mer blått</button>
+    <button onclick="changeColor(0,0,-10)">Mindre blått</button>
+    <div id="colorDiv" style="height: 400px"></div>
+
+    <script>
+        let colorDiv = document.getElementById('colorDiv');
+
+        // Model
+        let red = 50;
+        let green = 80;
+        let blue = 150;
+
+        // View
+        show();
+        function show(){
+            colorDiv.style.backgroundColor = `rgb(${red},${green},${blue})`;
+        }
+
+        // Controller
+        function changeColor(changeInRed, changeInGreen, changeInBlue) {
+            red += changeInRed;
+            green += changeInGreen;
+            blue += changeInBlue;
+            show();
+        }
+
+
+    </script>
+</body>
+
+</html>

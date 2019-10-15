@@ -120,7 +120,8 @@
 
 
                 //Hvem vant?
-                var winner = content1 === "x" ? "Du" : "Datamaskinen";
+                var winner = content1 === "x" ? "Du" : "Datamaskinen"; // ? sjekker om "du" er sant først, ellers så sjekker : om "datamaskinen" er sant. Akkurat som en if setning. 
+
                 document.getElementById("info").innerHTML = winner + " vant!";
                 document.getElementById("link").innerHTML = "Klikk her for å starte på nytt!";
 
