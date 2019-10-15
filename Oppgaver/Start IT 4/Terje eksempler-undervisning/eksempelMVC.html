@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- View -->
+    Navn: 
+    <input  oninput="changeName(this)" /><br/>
+    Bosted:
+    <input oninput="changeBosted(this)" />
+
+    <div id="myDiv"></div>
+
+    <script>
+        let myDiv = document.getElementById('myDiv');
+
+        // Model
+        let name;
+        let bosted;
+
+        // View
+        show();
+        function show() {
+            myDiv.innerHTML = `
+            
+                <h1>Hei på deg, ${name}!</h1>
+                <hr/>
+                <p>Håper du har det fint i ${bosted}.
+                        Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla.                     </p>
+                <p>Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. 
+                        Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla.                     </p>
+                <p>Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. 
+                        Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla.                     </p>
+                <p>Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. 
+                        Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla.                     </p>                                
+            `;
+        }
+
+        // Controller
+        function changeName(inputTag) {
+            name = inputTag.value;
+            show();
+        }
+
+        function changeBosted(inputTag) {
+            bosted = inputTag.value;
+            show();
+        }
+
+
+    </script>
+</body>
+
+</html>

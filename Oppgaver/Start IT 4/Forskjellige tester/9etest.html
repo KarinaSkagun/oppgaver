@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<style>
+    #pickColor {
+        width: 100px;
+        height: 100px;
+        border: 2px solid black;
+        text-align: center;
+        vertical-align: middle;
+    }
+</style>
+
+<body>
+    <div id="pickColor"></div>
+    </br>
+    <select class="ColorChooser" onchange="colors(this)">
+<option value="white">Velg farge!</option>
+<option value="lightgreen">Lys grønn</option>
+<option value="rgb(247, 137, 155)">Lys Rosa</option>
+<option value="lightblue">Lys blå</option>
+<option value="lightgreen">Lys grønn</option>
+
+</select>
+
+    <script>
+        function colors(element) {
+            if (element.value == "lightgreen") {
+                document.getElementById("pickColor").style.backgroundColor = "lightgreen";
+                document.getElementById("pickColor").style.color = "green";
+                document.getElementById("pickColor").innerHTML = "Grønnfarge";
+
+            } else if (element.value == "rgb(247, 137, 155)") {
+                document.getElementById("pickColor").style.backgroundColor = "rgb(247, 137, 155)";
+                document.getElementById("pickColor").style.color = "white";
+                document.getElementById("pickColor").innerHTML = "Rosafarge";
+
+            } else if (element.value == "lightblue") {
+                document.getElementById("pickColor").style.backgroundColor = "lightblue";
+                document.getElementById("pickColor").style.color = "blue";
+                document.getElementById("pickColor").innerHTML = "Blåfarge";
+
+            } else if (element.value == "lightgreen") {
+                document.getElementById("pickColor").style.backgroundColor = "lightgreen";
+                document.getElementById("pickColor").style.color = "green";
+                document.getElementById("pickColor").innerHTML = "Grønnfarge";
+            }
+
+        }
+    </script>
+
+
+
+
+</body>
+
+</html>

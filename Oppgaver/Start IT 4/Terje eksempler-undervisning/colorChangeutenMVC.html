@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="changeColor(+10,+10,+10)">Mer av alt</button>
+    <button onclick="changeColor(-10,-10,-10)">Mindre av alt</button>
+    <button onclick="changeColor(+10,0,0)">Mer rødt</button>
+    <button onclick="changeColor(-10,0,0)">Mindre rødt</button>
+    <button onclick="changeColor(0,+10,0)">Mer grønt</button>
+    <button onclick="changeColor(0,-10,0)">Mindre grønt</button>
+    <button onclick="changeColor(0,0,+10)">Mer blått</button>
+    <button onclick="changeColor(0,0,-10)">Mindre blått</button>
+    <div id="colorDiv" style="background-color: rgb(158, 196, 98); height: 400px"></div>
+
+    <script>
+        let colorDiv = document.getElementById('colorDiv');
+
+        function changeColor(changeInRed, changeInGreen, changeInBlue) {
+            let color = colorDiv.style.backgroundColor;
+            if (changeInRed > 0) {
+                let leftParenthesisIndex = color.indexOf('(');
+                let firstCommaIndex = color.indexOf(',');
+                let oldRed = color.substring(leftParenthesisIndex + 1, firstCommaIndex);
+                let newRed = parseInt(oldRed) + changeInRed;
+                color = color.replace(oldRed, newRed);
+            }
+            else if (changeInGreen > 0) {
+                let firstCommaIndex = color.indexOf(',');
+                let secondCommaIndex = color.indexOf(',', firstCommaIndex+1);
+                let oldGreen = color.substring(firstCommaIndex + 1, secondCommaIndex);
+                let newGreen = parseInt(oldGreen) + changeInGreen;
+                color = color.replace(oldGreen, newGreen);
+            }
+            else if (changeInBlue > 0) {
+                let firstCommaIndex = color.indexOf(',');
+                let secondCommaIndex = color.indexOf(',', firstCommaIndex+1);                
+                let rightParenthesisIndex = color.indexOf(')');
+                let oldBlue = color.substring(secondCommaIndex + 1, rightParenthesisIndex);
+                let newBlue = parseInt(oldBlue) + changeInBlue;
+                color = color.replace(oldBlue, newBlue);
+            }
+            colorDiv.style.backgroundColor = color;
+        }
+
+
+    </script>
+</body>
+
+</html>

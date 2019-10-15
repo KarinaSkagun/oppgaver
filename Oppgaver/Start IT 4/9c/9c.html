@@ -31,11 +31,16 @@
         var numberClicksA = 0;
         var numberClicksB = 0;
         var numberClicksC = 0;
-
+        var buttonClickedLastTime; //For å få border
 
 
         function doClick(buttonClicked) {
             infoDiv.innerHTML = 'Du trykket på firkant ';
+            if (buttonClickedLastTime != undefined) { //For å få border
+                buttonClickedLastTime.style.border = "none"; //For å få border som forsvinner når man trykker på neste firkant.
+
+            }
+            buttonClicked.style.border = "solid 4px yellow"; //For å få border
 
             if (buttonClicked == divA) {
                 infoDiv.innerHTML += 'A';
@@ -71,6 +76,7 @@
 
             buttonLastClicked = buttonClicked;
             buttonBeforeLastClicked == buttonLastClicked;
+            buttonClickedLastTime = buttonClicked; //For å få border
 
         }
     </script>

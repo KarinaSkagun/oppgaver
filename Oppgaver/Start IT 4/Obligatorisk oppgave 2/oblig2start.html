@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,18 +10,20 @@
 
 <body>
     <div>
-        <svg id="chart" id="chosenBarText" width="500" viewBox="0 0 80 60"></svg>
+        <svg id="chart" width="500" viewBox="0 0 80 60"></svg>
     </div>
     Valgt stolpe: <i id="chosenBar">ingen</i><br /> Verdi: <input id="value" type="number" min="1" max="10" />
-    <button id="addBar" onclick="push(this)">Legg til stolpe</button>
-    <button id="changeBar" onclick="push(this)" disabled>Endre valgt stolpe</button><br />
-    <button id="removeBar" onclick="push(this)" disabled>Fjerne valgt stolpe</button>
+    <button id="addBar" onclick="buttons()">Legg til stolpe</button>
+    <button id="changeBar" onclick="buttons()" disabled>Endre valgt stolpe</button><br />
+    <button id="removeBar" onclick="buttons()" disabled>Fjerne valgt stolpe</button>
+
 
 
     <script>
+        //Model
         let numbers = [7, 3, 1, 5, 8];
+        var svgTag = document.getElementById('chart');
         let chosenBarNumber = "ingen";
-        let svgTag = document.getElementById('chart');
         let chosenBarText = document.getElementById("chosenBarText");
         let chosenBar = document.getElementById("chosenBar");
         let value = document.getElementById("value");
@@ -29,21 +32,25 @@
         let removeBar = document.getElementById("removeBar");
         showChart();
 
-        function toggleSelectBar(barNo) {
-            if (barNo === chosenBarNumber) {
-                chosenBarNumber = 'ingen';
+
+        //Controller
+        function barClicked(barNo) {
+            if (barNo == chosenBarNumber) {
+                removeBar.disabled = true; //Dette gjør at når stolpen ikke er valgt, så er knappene "fjerne valgt stolpe" og "endre valgt stolpe" disabled.
+                changeBar.disabled = true; //Dette gjør at når stolpen ikke er valgt, så er knappene "fjerne valgt stolpe" og "endre valgt stolpe" disabled.
+                chosenBarNumber = "ingen";
+
+
             } else {
                 chosenBarNumber = barNo;
+                removeBar.disabled = false; //Dette gjør at når stolpen er valgt, så er knappene "fjerne valgt stolpe" og "endre valgt stolpe" synlige.
+                changeBar.disabled = false; //Dette gjør at når stolpen er valgt, så er knappene "fjerne valgt stolpe" og "endre valgt stolpe" synlige.
             }
-            updateButtons();
+            chosenBar.innerHTML = chosenBarNumber; //Denne gjør at nummeret til stolpen som er valgt blir vist i "valgt stolpe:".
+
+
+            showChart();
         }
-
-        function barClicked(oneBarClicked) {
-            oneBarClicked.style.stroke = "black";
-            oneBarClicked.style.strokeWidth = "1px";
-
-        }
-
 
         function showChart() {
             let svgInnerHtml = '';
@@ -53,14 +60,22 @@
                 if (barNo == chosenBarNumber) {
                     border = 1;
                 }
-                svgInnerHtml += createBar(numbers[i], i + 1);
+                svgInnerHtml += createBar(numbers[i], i + 1, border);
             }
             svgTag.innerHTML = svgInnerHtml;
-
         }
 
 
-        function createBar(number, barNo) {
+
+
+
+
+
+
+
+        //View
+
+        function createBar(number, barNo, border) {
             const width = 8;
             const spacing = 2;
             let x = (barNo - 1) * (width + spacing);
@@ -68,15 +83,17 @@
             let y = 60 - height;
             let color = calcColor(1, 10, barNo);
             return `<rect 
-            onclick="barClicked(this)" 
-            width="${width}" 
-            height="${height}"
-            x="${x}" 
-            y="${y}" 
-            fill="${color}">
-            </rect>`;
-        }
+        onclick="barClicked(${barNo})" 
+        width="${width}" 
+        height="${height}"
+        x="${x}" 
+        y="${y}" 
+        fill="${color}"
+        stroke-width="${border}"
+        stroke="black";>
+        </rect>`
 
+        }
 
         function calcColor(min, max, val) {
             var minHue = 240,
