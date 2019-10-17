@@ -103,9 +103,9 @@
 
         function createHtmlRow(i) {
             const task = tasks[i];
-            const checkedHtml = task.isDone ? 'checked="checked"' : '';
+            const checkedHtml = task.isDone ? 'checked="checked"' : "";
             if (!task.editMode)
-                `<tr>
+                return `<tr>
                             <td>${task.description}</td>
                             <td><input onchange="changeIsDone(this, ${i})" type="checkbox" ${checkedHtml} /></td>
                             <td>
