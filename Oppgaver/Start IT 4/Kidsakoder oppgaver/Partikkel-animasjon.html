@@ -11,7 +11,7 @@
     body {
         background-color: #666;
     }
-    
+
     #canvas {
         background-color: #000;
         margin-left: 100px;
@@ -21,7 +21,10 @@
 <body>
     <canvas id="canvas" width="500" height="500"></canvas>
     <script>
+
         var canvas, ctx;
+        var canvasHeight;
+        var particleSize;
 
         var particle = {
             x: 0,
@@ -29,11 +32,13 @@
             xSpeed: 2,
             ySpeed: 2,
             size: 100,
-            color: "pink"
+            color: "pink",
+            gravitation: 0.01,
+            speed: 0
 
         };
 
-        window.onload = function() {
+        window.onload = function () {
             canvas = document.getElementById("canvas");
             ctx = canvas.getContext("2d");
             setInterval(draw, 30); //Kjøres hvert 30 millisekund. 1000 millisekunder er 1 sekund.
@@ -45,12 +50,20 @@
 
             ctx.fillStyle = particle.color;
             ctx.fillRect(particle.x, particle.y, particle.size, particle.size);
+            particle.gravitation += particle.speed;
 
-            particle.x = particle.x + particle.xSpeed;
+            particle.x = particle.x + particle.speed;
             particle.y = particle.y + particle.ySpeed;
 
+            if (particle.y > canvas) {
+                particle === y + 50;
+
+
+            }
 
         }
+
+
     </script>
 </body>
 
