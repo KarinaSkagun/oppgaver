@@ -47,6 +47,7 @@
     <p>
         <input id="taskDescription" type="text" /><button onclick="addTask()">Legg til oppgave</button>
     </p>
+
     <script>
         // Model
         var tasks = [{
@@ -62,9 +63,10 @@
             people: 'Espen',
             isDone: false
         }, ];
+
         // Controller
         var taskDescriptionInput = document.getElementById('taskDescription');
-        var taskPeopleInput = document.getElementById('taskPeople');
+        var taskPeopleInput;
 
         function addTask() {
             tasks.push({
@@ -76,6 +78,7 @@
 
             });
             taskDescriptionInput.value = '';
+            taskPeopleInput.value = "";
             show();
         }
         // View
@@ -100,7 +103,7 @@
 
         function createHtmlRow(i) {
             const task = tasks[i];
-            const checkedHtml = task.isDone ? 'checked="checked"' : '';
+            const checkedHtml = task.isDone ? 'checked="checked"' : "";
             if (!task.editMode)
                 return `<tr>
                             <td>${task.description}</td>
@@ -115,7 +118,7 @@
                             </td>    
                             <td>
 
-                                    <input onchange="changeIsDone2(this, ${i})" type="checkbox" ${checkedHtml}
+                                    <input onchange="editPeople(this, ${i})" type="checkbox" ${checkedHtml}
                             </td>
                         </tr>
                         `;
@@ -124,7 +127,7 @@
                             <td><input id="editPeople${i}" type="text" value="${task.people}"/></td>
 
                             <td><input onchange="changeIsDone(this, ${i})" type="checkbox" ${checkedHtml} /></td>
-                            <td><input onchange="changeIsDone2(this, ${i})" type="checkbox" ${checkedHtml} /></td>
+                            <td><input onchange="checkPerson(this, ${i})" type="checkbox" ${checkedHtml} /></td>
                             <td>
                                 <button onclick="updateTask(${i})">Lagre</button>
                             </td>
@@ -138,7 +141,7 @@
             show();
         }
 
-        function changeIsDone2(checkbox, index) {
+        function checkPerson(checkbox, index) {
             tasks[index].isDone = checkbox.checked;
 
             show();
@@ -161,6 +164,7 @@
             const task = tasks[index];
             task.description = inputTag.value;
             task.editMode = false;
+            people.editMode = false;
             show();
         }
     </script>

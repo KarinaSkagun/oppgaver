@@ -12,10 +12,13 @@
     <div>
         <svg id="chart" width="500" viewBox="0 0 80 60"></svg>
     </div>
-    Valgt stolpe: <i id="chosenBar">ingen</i><br /> Verdi: <input id="value" type="number" min="1" max="10" />
-    <button id="addBar" onclick="buttons()">Legg til stolpe</button>
-    <button id="changeBar" onclick="buttons()" disabled>Endre valgt stolpe</button><br />
-    <button id="removeBar" onclick="buttons()" disabled>Fjerne valgt stolpe</button>
+    Valgt stolpe: <i id="chosenBar">ingen</i><br /> Verdi: <input id="values" type="number" min="1" max="10" />
+
+    <button id="addBar" onclick="addButton()">Legg til stolpe</button>
+    <button id="changeBar" onclick="buttonChange()" disabled>Endre valgt stolpe</button><br />
+
+    <button id="removeBar" onclick="removeButton(chosenBarNumber)" disabled>Fjerne valgt stolpe</button>
+    <span id="errorMessage"></span>
 
 
 
@@ -26,16 +29,18 @@
         let chosenBarNumber = "ingen";
         let chosenBarText = document.getElementById("chosenBarText");
         let chosenBar = document.getElementById("chosenBar");
-        let value = document.getElementById("value");
+        let values = document.getElementById("values");
         let addBar = document.getElementById("addBar");
         let changeBar = document.getElementById("changeBar");
         let removeBar = document.getElementById("removeBar");
+        let errorMessage = document.getElementById("errorMessage");
         showChart();
 
 
         //Controller
         function barClicked(barNo) {
             if (barNo == chosenBarNumber) {
+                (chosenBarNumber == "ingen")
                 removeBar.disabled = true; //Dette gjør at når stolpen ikke er valgt, så er knappene "fjerne valgt stolpe" og "endre valgt stolpe" disabled.
                 changeBar.disabled = true; //Dette gjør at når stolpen ikke er valgt, så er knappene "fjerne valgt stolpe" og "endre valgt stolpe" disabled.
                 chosenBarNumber = "ingen";
@@ -47,10 +52,44 @@
                 changeBar.disabled = false; //Dette gjør at når stolpen er valgt, så er knappene "fjerne valgt stolpe" og "endre valgt stolpe" synlige.
             }
             chosenBar.innerHTML = chosenBarNumber; //Denne gjør at nummeret til stolpen som er valgt blir vist i "valgt stolpe:".
-
-
             showChart();
         }
+
+
+        function addButton() { //Man må lage en ny funksjon per knapp.
+
+            if (0 <= values.value && values.value <= 10) { //Om verdien er mindre enn 0 og større enn 10 så får man feilmelding. 
+                numbers.push(values.value) //Push legger til en ny verdi (stolpe). "numbers" henter verdiene i array'en. "values" tar tak i verdi inputen.
+                errorMessage.innerHTML = "";
+            } else {
+                errorMessage.innerHTML = "<b>Error. Verdien er ikke gyldig!</b> "
+
+            }
+            showChart();
+        }
+
+
+        function buttonChange() {
+            if (1 <= values.value && values.value <= 10) { //Samme framgangsmåte som "addButton" funksjonen. 
+                numbers[chosenBarNumber - 1] = values.value;
+                errorMessage.innerHTML = "";
+            } else {
+                errorMessage.innerHTML = "<b>Error. Verdien er ikke gyldig!</b> "
+
+            }
+            values.value = "";
+            showChart();
+
+        }
+
+
+
+        function removeButton(elm) { //Man må lage en ny funksjon per knapp.
+            numbers.splice(elm - 1, 1) //Splice fjerner en verdi fra array'en
+            showChart()
+
+        }
+
 
         function showChart() {
             let svgInnerHtml = '';
@@ -64,13 +103,6 @@
             }
             svgTag.innerHTML = svgInnerHtml;
         }
-
-
-
-
-
-
-
 
 
         //View

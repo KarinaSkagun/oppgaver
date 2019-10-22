@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Partikkel-animasjon</title>
+</head>
+<style>
+    body {
+        background-color: #666;
+    }
+    
+    #canvas {
+        background-color: #000;
+        margin-left: 100px;
+    }
+</style>
+
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+        var canvas, ctx;
+
+        var particle = {
+            x: 0,
+            y: 0,
+            xSpeed: 2,
+            ySpeed: 2,
+            size: 100,
+            color: "pink"
+
+        };
+
+        window.onload = function() {
+            canvas = document.getElementById("canvas");
+            ctx = canvas.getContext("2d");
+            setInterval(draw, 30); //Kjøres hvert 30 millisekund. 1000 millisekunder er 1 sekund.
+        };
+
+
+        function draw() {
+            ctx.clearRect(0, 0, 500, 500); //fjerner alt som er innenfor det svarte. Altså fra (x,y)-posisjonen (0,0) og helt til (500,500).
+
+            ctx.fillStyle = particle.color;
+            ctx.fillRect(particle.x, particle.y, particle.size, particle.size);
+
+            particle.x = particle.x + particle.xSpeed;
+            particle.y = particle.y + particle.ySpeed;
+
+
+        }
+    </script>
+</body>
+
+</html>

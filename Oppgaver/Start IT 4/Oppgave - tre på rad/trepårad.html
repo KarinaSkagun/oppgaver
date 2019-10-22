@@ -66,6 +66,9 @@
     <script>
         var isGameStopped = false;
 
+
+
+
         function trykk(element) {
             if (!isGameStopped &&
                 element.innerHTML !== "x" && element.innerHTML !== "o") {
@@ -74,17 +77,22 @@
                 if (isGameStopped) return;
 
                 var divs1 = document.getElementsByTagName('div');
-                var divs2 = new Array();
+                var computer = new Array();
                 for (var i = 0; i < divs1.length; i++) {
                     if (divs1[i].innerHTML !== 'x' && divs1[i].innerHTML !== 'o') {
-                        divs2.push(divs1[i]);
+                        computer.push(divs1[i]);
                     }
                 }
-                if (divs2.length > 0) {
-                    var index = Math.floor(Math.random() * divs2.length);
-                    divs2[index].innerHTML = 'o';
-                    divs2[index].style.color = 'rgb(133, 77, 114) ';
-                }
+
+                setTimeout(function setDelay() { //Setter en delay på "o'ene" til datamaskinen, så de ikke kommer på skjermen med en gang jeg har trykket.
+                    if (computer.length > 0) {
+                        var index = Math.floor(Math.random() * computer.length);
+                        computer[index].innerHTML = 'o'; //Datamaskinen setter en O.
+                        computer[index].style.color = 'rgb(133, 77, 114) ';
+                    }
+
+                }, 1000);
+
                 checkWinning();
             }
         }
@@ -105,8 +113,12 @@
             checkCombinationForWinning(0, 4, 8);
             if (isGameStopped) return;
             checkCombinationForWinning(2, 4, 6);
+            if (isGameStopped) return;
+            // else if (moves == 9) {
+            //    draw
+            //  }
 
-        }
+        };
 
         function checkCombinationForWinning(index1, index2, index3) {
             var divs = document.getElementsByTagName('div');
