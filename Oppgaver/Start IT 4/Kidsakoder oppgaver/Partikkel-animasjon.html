@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Partikkel-animasjon</title>
+</head>
+<style>
+    body {
+        background-color: #666;
+    }
+    
+    #canvas {
+        background-color: #000;
+        margin-left: 100px;
+    }
+</style>
+
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+        var canvas;
+        var ctx;
+
+        var particle = {
+            x: 180,
+            y: 180,
+            size: 100,
+            color: "pink",
+            xSpeed: 2,
+            ySpeed: 2
+        };
+
+        window.onload = function() {
+            canvas = document.getElementById("canvas");
+            ctx = canvas.getContext("2d");
+            draw();
+        };
+
+
+        function draw() {
+            ctx.fillStyle = particle.color;
+            ctx.fillRect(particle.xSpeed, particle.ySpeed, particle.size, particle.size);
+            particle.x = particle.x = particle.xSpeed;
+        };
+        setInterval(draw, 30);
+    </script>
+</body>
+
+</html>

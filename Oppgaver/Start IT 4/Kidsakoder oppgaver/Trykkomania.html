@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <!--user-scalable=no betyr at hvis man spiller på mobilen og dobbelklikker, så zoomer ikke mobilen.  -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+
+
+<body>
+
+
+    <script>
+        var poeng = poeng();
+
+        var ball = ball();
+        ball.onclick = poeng.øk; //Det skal ikke være () på slutten av poeng.øk. Dette er fordi funksjonen ikke kjøres her, men hver gang noen klikker på ballen.
+        setInterval(function() { //setInterval gjør at ballen flytter på seg automatisk. 
+            var x = Math.random() * 80 + "%"; //80% for å unngå at ballen kommer utenfor skjermen. 
+            var y = Math.random() * 80 + "%";
+            ball.position(x, y)
+        }, 1000); //funksjonen blir kjørt hvert 2000 millisekund(2sek).
+
+        var knapp = knapp("Prøv en gang til");
+        knapp.onclick = start;
+
+        var nedtelling = nedtelling(stopp); // dette lager en nedtelling på 10sek.
+        nedtelling.tellNed(10); // dette lager en nedtelling på 10sek.
+
+        function start() {
+            poeng.nullstill();
+            nedtelling.tellNed(10);
+            ball.vis();
+            knapp.skjul();
+        }
+
+        function stopp() {
+            ball.skjul();
+            knapp.vis();
+        }
+
+
+        function ball() {
+            var el = document.createElement("div");
+            el.style.backgroundColor = "pink";
+            el.style.border = "4px solid rgb(172, 52, 72)";
+            el.style.width = "70px"
+            el.style.height = "70px"
+            el.style.borderRadius = "40px";
+            el.style.position = "fixed";
+
+
+            document.body.appendChild(el);
+
+            el.position = function(x, y) {
+                el.style.left = x;
+                el.style.top = y;
+            };
+
+            el.skjul = function() {
+                el.style.display = "none";
+            };
+            el.vis = function() {
+                el.style.display = "";
+            };
+            return el;
+        }
+
+
+        function poeng() {
+            //CSS til "el"
+            var el = document.createElement('div');
+            el.style.position = "fixed";
+            el.style.bottom = "20px";
+            el.style.left = "32px";
+            el.style.padding = "20px";
+            el.style.backgroundColor = "pink";
+            el.style.color = "<b>rgb(172, 52, 72)</b>";
+            el.style.border = "4px solid rgb(172, 52, 72)";
+            el.style.userSelect = "none";
+
+            //Viser poengsum på skjermen, og lager variablen _poeng
+            var _poeng = 0;
+            el.innerHTML = _poeng + " poeng";
+            document.body.appendChild(el);
+
+            // To funksjoner som øker eller nullstiller poengene
+            el.øk = function() {
+                _poeng += 100;
+                el.innerHTML = _poeng + " poeng";
+            };
+            el.nullstill = function() {
+                _poeng = 0;
+                el.innerHTML = _poeng + " poeng";
+            };
+            return el;
+        }
+
+
+        /**
+         * Nedtelling - En linje som viser at tiden renner ut.
+         *
+         * Bruk:
+         *   var nedtelling = Nedtelling(slutt);  // funksjonen `slutt` kjøres når tiden er utløpt
+         *   nedtelling.tellNed(10);  // teller ned 10 sekunder
+         *
+         */
+
+        function nedtelling(ferdig) {
+            var el = document.createElement("div");
+
+            //CSS til elementet "el"
+            el.style.position = "fixed";
+            el.style.left = "0";
+            el.style.bottom = "0";
+            el.style.height = "100%";
+            el.style.width = "9px";
+            el.style.backgroundColor = "pink";
+            el.style.border = "2px solid rgb(172, 52, 72)";
+            document.body.appendChild(el);
+
+            //Regner ut prosenten av hvor lang tid det er igjen.
+            function prosent(slutt, tid) {
+                return (slutt - Date.now()) / tid / 10;
+            }
+            //Funksjonen som teller ned og stopper når den har kommet til null.
+            el.tellNed = function(tid) {
+                var slutt = Date.now() + tid * 1000;
+                var intervall = setInterval(tegn, 20);
+                //Tegner streken på venstre side til tiden er ute
+                function tegn() {
+                    var p = prosent(slutt, tid);
+                    if (p < 0) {
+                        el.style.height = "0%";
+                        clearInterval(intervall);
+                        ferdig();
+                    }
+                    el.style.height = p + "%";
+                }
+            };
+            return el;
+        }
+
+
+        function knapp(tekst) {
+            var el = document.createElement("button");
+            el.style.display = "none";
+            el.innerText = tekst;
+            el.style.position = "fixed";
+            el.style.top = "50%";
+            el.style.left = "50%";
+            el.style.padding = "20px";
+            el.style.border = "4px solid rgb(172, 52, 72)";
+            el.style.color = "rgb(172, 52, 72)";
+            el.style.backgroundColor = "pink";
+            el.style.userSelect = "none";
+            document.body.appendChild(el);
+
+            el.skjul = function() {
+                el.style.display = "none";
+            };
+
+            el.vis = function() {
+                el.style.display = "";
+                var width = el.offsetWidth / 2;
+                var height = el.offsettHeight / 2;
+                el.style.marginLeft = "-" + width + "px";
+                el.style.marginTop = "-" + height + "px";
+            };
+            return el;
+        }
+    </script>
+</body>
+
+</html>
