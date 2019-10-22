@@ -21,31 +21,36 @@
 <body>
     <canvas id="canvas" width="500" height="500"></canvas>
     <script>
-        var canvas;
-        var ctx;
+        var canvas, ctx;
 
         var particle = {
-            x: 180,
-            y: 180,
-            size: 100,
-            color: "pink",
+            x: 0,
+            y: 0,
             xSpeed: 2,
-            ySpeed: 2
+            ySpeed: 2,
+            size: 100,
+            color: "pink"
+
         };
 
         window.onload = function() {
             canvas = document.getElementById("canvas");
             ctx = canvas.getContext("2d");
-            draw();
+            setInterval(draw, 30); //Kjøres hvert 30 millisekund. 1000 millisekunder er 1 sekund.
         };
 
 
         function draw() {
+            ctx.clearRect(0, 0, 500, 500); //fjerner alt som er innenfor det svarte. Altså fra (x,y)-posisjonen (0,0) og helt til (500,500).
+
             ctx.fillStyle = particle.color;
-            ctx.fillRect(particle.xSpeed, particle.ySpeed, particle.size, particle.size);
-            particle.x = particle.x = particle.xSpeed;
-        };
-        setInterval(draw, 30);
+            ctx.fillRect(particle.x, particle.y, particle.size, particle.size);
+
+            particle.x = particle.x + particle.xSpeed;
+            particle.y = particle.y + particle.ySpeed;
+
+
+        }
     </script>
 </body>
 
