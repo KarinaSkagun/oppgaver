@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div id="the-div" onclick="clickDiv()"></div>
+    <div id="the-div"></div>
 
     <script>
         let theDiv = document.getElementById('the-div');
@@ -22,6 +22,7 @@
         let color = 'rgb(211, 136, 148)';
         let borderRadius = "150px";
         let border = "10px solid rgb(197, 75, 96)";
+        let onclick = "clickDiv()";
 
 
         // View 
@@ -31,6 +32,7 @@
             theDiv.style.backgroundColor = color;
             theDiv.style.borderRadius = borderRadius;
             theDiv.style.border = border;
+            theDiv.setAttribute("onclick", onclick);
         }
 
         // Controller
@@ -38,11 +40,12 @@
             color = 'pink';
             borderRadius = "100px";
             border = "10px solid rgb(211, 136, 148)";
+            onclick = "secondClick()";
             show();
         }
 
-        //function clickTrice(){}
-        //      theDiv.onclick=clickTrice();
+        function secondClick() {
+
         }
     </script>
 </body>
