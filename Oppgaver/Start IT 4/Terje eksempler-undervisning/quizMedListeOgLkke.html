@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="content"></div>
+    <script>
+        let content = document.getElementById('content');
+
+        // model
+        let questions = ['Hva er 2+2?', 'Hva er 3+3?', 'Hva er 4+4?'];
+        let answerA = ['3', '4', '8'];
+        let answerB = ['4', '5', '9'];
+        let answerC = ['5', '6', '10'];
+        let correctAnswers = ['B', 'C', 'A'];
+        let actualAnswers = [null, null, null];
+        let questionIndex = 0;
+
+        // view
+        show();
+        function show() {
+            let nextQuestion = actualAnswers[questionIndex] == correctAnswers[questionIndex]
+                ? '<p><button onclick="nextQuestion()">Neste spørsmål</button></p>' : '';
+
+            let debugHTML = `<table>
+                                <tr>
+                                    <td>Spm</td>
+                                    <td>A</td>
+                                    <td>B</td>
+                                    <td>C</td>
+                                    <td>Ditt svar</td>
+                                    <td>Fasit</td>
+                                </tr>`;
+            for (let i = 0; i < questions.length; i++) {
+                debugHTML += `
+                    <tr>
+                        <td>${questions[i]}</td>
+                        <td>${answerA[i]}</td>
+                        <td>${answerB[i]}</td>
+                        <td>${answerC[i]}</td>
+                        <td>${actualAnswers[i]}</td>
+                        <td>${correctAnswers[i]}</td>
+                    </tr>
+                    `;
+            }
+            debugHTML += '</table>';
+
+            content.innerHTML = `
+                        <h3>${questions[questionIndex]}</h3>
+                        <button onclick="answer('A')">${answerA[questionIndex]}</button>
+                        <button onclick="answer('B')">${answerB[questionIndex]}</button>
+                        <button onclick="answer('C')">${answerC[questionIndex]}</button>
+                        ${answerStatus()}
+                        ${nextQuestion}
+                        <hr/>
+                        ${debugHTML}
+                        `;
+        }
+
+        function answerStatus() {
+            return actualAnswers[questionIndex] == null ? '' :
+                actualAnswers[questionIndex] == correctAnswers[questionIndex] ? 'Riktig!' :
+                    'Feil';
+            //if (actualAnswer == null) return '';
+            //if (actualAnswer == correctAnswer) return 'Riktig!';
+            //else return 'Feil';
+        }
+
+        // controller
+        function answer(answer) {
+            actualAnswers[questionIndex] = answer;
+            show();
+        }
+
+        function nextQuestion() {
+            questionIndex++;
+            show();
+        }
+    </script>
+</body>
+</html>
