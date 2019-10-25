@@ -14,13 +14,19 @@
             border: 2px solid rgb(197, 75, 96);
             padding: 15px;
         }
+        
+        #the-div {
+            float: right;
+        }
     </style>
 </head>
 
 <body>
     <div id="the-div"></div>
 
-    <div id="poengDiv">Poeng:</div>
+    <div id="poengDiv"></div>
+
+    <div id="countdown">10</div>
 
 
     <script>
@@ -35,7 +41,8 @@
         let width = "250px";
         let height = "250px";
         let poeng = 0;
-
+        let seconds;
+        let temp;
 
         // View 
         show();
@@ -47,9 +54,6 @@
             theDiv.setAttribute("onclick", onclick);
             theDiv.style.height = height;
             theDiv.style.width = width;
-
-
-
             poengDiv.innerHTML = "Poeng: " + poeng;
 
 
@@ -66,6 +70,43 @@
 
 
         // Controller
+
+
+        //timer
+        function countdown() {
+            seconds = document.getElementById("countdown").innerHTML;
+            seconds = parseInt(seconds, 10);
+
+            if (seconds == 1) {
+                temp = document.getElementById("countdown");
+                temp.innerHTML = "Game over";
+                return;
+
+            }
+
+            seconds--;
+            temp = document.getElementById("countdown");
+            temp.innerHTML = seconds;
+            timeOut = setTimeout(countdown, 1000);
+
+        }
+
+        countdown();
+        //timer
+
+
+
+
+        document.addEventListener("click", function(event) { //Dette gjør at når man trykker på utsiden av ballen, 
+            let isClickInside = theDiv.contains(event.target); // så får man minus poeng. 
+
+            if (!isClickInside) {
+                poeng--;
+            }
+            show();
+        });
+
+
 
 
 

@@ -12,6 +12,7 @@
     <div>
         <svg id="chart" width="500" viewBox="0 0 80 60"></svg>
     </div>
+
     Valgt stolpe: <i id="chosenBar">ingen</i><br /> Verdi: <input id="values" type="number" min="1" max="10" />
 
     <button id="addBar" onclick="addButton()">Legg til stolpe</button>
@@ -25,9 +26,8 @@
     <script>
         //Model
         let numbers = [7, 3, 1, 5, 8];
-        var svgTag = document.getElementById('chart');
+        let svgTag = document.getElementById('chart');
         let chosenBarNumber = "ingen";
-        let chosenBarText = document.getElementById("chosenBarText");
         let chosenBar = document.getElementById("chosenBar");
         let values = document.getElementById("values");
         let addBar = document.getElementById("addBar");
@@ -95,9 +95,9 @@
             let svgInnerHtml = '';
             for (let i = 0; i < numbers.length; i++) {
                 let barNo = i + 1;
-                let border = 0;
+                let border = 0; //for å fjerne border
                 if (barNo == chosenBarNumber) {
-                    border = 1;
+                    border = 1; //for å legge til border
                 }
                 svgInnerHtml += createBar(numbers[i], i + 1, border);
             }
@@ -120,7 +120,7 @@
         height="${height}"
         x="${x}" 
         y="${y}" 
-        fill="${color}"
+        fill="${color}"         
         stroke-width="${border}"
         stroke="black";>
         </rect>`
