@@ -4,19 +4,23 @@
     <meta charset="UTF-8">
     <title>MVC</title>
     <style>
-        div {
-            position: absolute;
-        }
-        
         #poengDiv {
             color: rgb(197, 75, 96);
             font-size: 30px;
             border: 2px solid rgb(197, 75, 96);
             padding: 15px;
+            position: absolute;
         }
         
         #the-div {
             float: right;
+            position: absolute;
+        }
+        
+        #countdown {
+            text-align: center;
+            color: rgb(197, 75, 96);
+            font-size: 40px;
         }
     </style>
 </head>
@@ -26,7 +30,7 @@
 
     <div id="poengDiv"></div>
 
-    <div id="countdown">10</div>
+    <div id="countdown">15</div>
 
 
     <script>
@@ -44,6 +48,7 @@
         let seconds;
         let temp;
 
+
         // View 
         show();
 
@@ -58,6 +63,8 @@
 
 
         }
+
+
 
         theDiv.position = function(x, y) { //gjør at ballen endrer position til et random sted
             theDiv.style.left = x;
@@ -87,13 +94,12 @@
             seconds--;
             temp = document.getElementById("countdown");
             temp.innerHTML = seconds;
-            timeOut = setTimeout(countdown, 1000);
+            timeOut = setTimeout(countdown, 1500);
 
         }
 
         countdown();
         //timer
-
 
 
 
