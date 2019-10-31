@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>MVC</title>
+    <style>
+      
+        
+        #poengDiv {
+            color: rgb(197, 75, 96);
+            font-size: 30px;
+            border: 2px solid rgb(197, 75, 96);
+            padding: 15px;
+            position:absolute;
+            user-select: none;
+            overflow:hidden;
+            display: block;
+        }
+        
+        #the-div {
+            position: absolute;
+         
+        
+         
+        }
+        #countdown{
+            color: rgb(197, 75, 96);
+            font-size: 40px;
+            padding: 15px;
+            text-align: center;
+            user-select: none;
+
+       
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="the-div"></div>
+
+    <span> <div id="poengDiv"></div> </span>
+
+    <div id="countdown">10</div>
+
+
+    <script>
+        let theDiv = document.getElementById("the-div");
+        let poengDiv = document.getElementById("poengDiv");
+
+        // Model
+        let color = "rgb(211, 136, 148)";
+        let borderRadius = "150px";
+        let border = "10px solid rgb(197, 75, 96)";
+        let onclick = "clickDiv()";
+        let width = "250px";
+        let height = "250px";
+        let poeng = 0;
+        let seconds;
+        let temp;
+
+        // View 
+        show();
+
+        function show() {
+            theDiv.style.backgroundColor = color;
+            theDiv.style.borderRadius = borderRadius;
+            theDiv.style.border = border;
+            theDiv.setAttribute("onclick", onclick);
+            theDiv.style.height = height;
+            theDiv.style.width = width;
+            poengDiv.innerHTML = "Poeng: " + poeng;
+
+
+        }
+
+        theDiv.position = function(x, y) { //gjør at ballen endrer position til et random sted
+            theDiv.style.left = x;
+            theDiv.style.top = y;
+
+        };
+
+        var x = Math.random() * 75 + "%"; //gjør at ballen endrer position til et random sted
+        var y = Math.random() * 75 + "%";
+
+
+        // Controller
+
+
+        //timer
+        function countdown() {
+            seconds = document.getElementById("countdown").innerHTML;
+            seconds = parseInt(seconds, 10);
+
+            if (seconds == 1) {
+                temp = document.getElementById("countdown");
+                temp.innerHTML = "Game over";
+                return;
+
+            }
+
+            seconds--;
+            temp = document.getElementById("countdown");
+            temp.innerHTML = seconds;
+            timeOut = setTimeout(countdown, 1000);
+
+        }
+
+        countdown();
+        //timer
+
+
+
+
+        document.addEventListener("click", function(event) { //Dette gjør at når man trykker på utsiden av ballen, 
+            let isClickInside = theDiv.contains(event.target); // så får man minus poeng. 
+
+            if (!isClickInside) {
+                poeng--;
+            }
+            show();
+        });
+
+
+
+
+
+        function felles() {
+            var x = Math.random() * 80 + "%";
+            var y = Math.random() * 80 + "%";
+            theDiv.position(x, y);
+            borderRadius = "150px";
+            poeng++;
+        }
+
+
+
+
+        function clickDiv() {
+            color = "pink";
+            border = "10px solid rgb(211, 136, 148)";
+            onclick = "secondClick()";
+            width = "200px";
+            height = "200px";
+            felles(); //"informasjonen" til funksjonen felles blir satt inn her.
+            show();
+        }
+
+        function secondClick() {
+            color = "lightcyan";
+            border = "10px solid rgb(114, 240, 240)";
+            onclick = "thirdClick()";
+            width = "150px";
+            height = "150px";
+            felles();
+            show();
+        }
+
+        function thirdClick() {
+            color = "lightsteelblue";
+            border = "7px solid rgb(134, 171, 219)";
+            onclick = "fourthClick()";
+            width = "100px";
+            height = "100px";
+            felles();
+            show();
+        }
+
+        function fourthClick() {
+            color = "rgb(168, 235, 168)"
+            border = "5px solid rgb(121, 235, 121)";
+            onclick = "fifthClick()"
+            width = "50px";
+            height = "50px";
+            felles();
+            show();
+        }
+
+        function fifthClick() {
+            color = "lightgoldenrodyellow";
+            border = "5px solid rgb(250, 250, 156)";
+            onclick = "sixthClick()"
+            width = "25px";
+            height = "25px";
+            felles();
+            show();
+        }
+
+        function sixthClick() {
+            color = "orange";
+            border = "2px solid orangered";
+            onclick = "seventhClick()"
+            width = "12.5px";
+            height = "12.5px";
+            felles();
+
+            show();
+        }
+
+        function seventhClick() {
+            color = "rgb(211, 136, 148)";
+            border = "3px solid rgb(197, 75, 96)";
+            onclick = "clickDiv()"
+            width = "5px";
+            height = "5px";
+            felles();
+            show();
+        }
+    </script>
+</body>
+
+</html>
