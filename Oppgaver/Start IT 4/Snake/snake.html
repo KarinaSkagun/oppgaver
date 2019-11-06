@@ -11,7 +11,7 @@
             text-align: center;
             font-family: Arial, Helvetica, sans-serif;
         }
-
+        
         #board div {
             background-color: rgb(216, 205, 205);
             border: 1px solid grey;
@@ -21,15 +21,19 @@
             width: 24px;
             height: 24px;
         }
-
+        
         #board {
             width: calc(26*24px);
             margin: auto;
             /* The margin: auto means that the board will be centered horizontally on-screen. */
         }
-
+        
         #board .snake {
             background-color: green;
+        }
+        
+        #board .apple {
+            background-color: red;
         }
     </style>
 </head>
@@ -47,10 +51,10 @@
         const boardWidth = 26,
             boardHeight = 16;
 
-        let snakeX;
-        let snakeY;
-        let snakeLength;
-        let snakeDirection;
+        var snakeX;
+        var snakeY;
+        var snakeLength;
+        var snakeDirection;
 
         function initGame() {
             const boardElement = document.getElementById("board");
@@ -77,6 +81,16 @@
             gameLoop();
         }
 
+        function placeApple() {
+            //A random coordinate for the apple
+            var appleX = Math.floor(Math.random() * boardwidth);
+            var appleY = Math.floor(Math.random() * boardHeight);
+
+            board[appleY][appleX].apple = 1;
+        }
+
+
+
 
         function startGame() {
             //Default position for the snake in the middle of the board
@@ -89,6 +103,7 @@
             for (let y = 0; y < boardHeight; ++y) {
                 for (let x = 0; x < boardWidth; ++x) {
                     board[y][x].snake = 0;
+                    board[y][x].apple = 0;
                 }
             }
 
@@ -96,7 +111,6 @@
 
             //Set the center of the board to contain a snake
             board[snakeY][snakeX].snake = snakeLength;
-
 
             function gameLoop() {
                 //Loop over the entire board, and update every cell
@@ -124,6 +138,26 @@
                 if (snakeX < 0 || snakeY < 0 || snakeX >= boardWidth || snakeY >= boardHeight) {
                     startGame()
                 }
+
+
+
+                //Tail collision
+                if (board[snakeY][snakeX].snake > 0) {
+                    startGame();
+                }
+
+
+
+                //Collect apples 
+                if (board[snakeY][snakeX].apple === 1) {
+                    snakeLength++;
+                    board[snakeY][snakeX].apple = 0;
+                    placeApple();
+                }
+
+
+
+
                 //Update the board at the new snake position
                 board[snakeY][snakeX].snake = snakeLength;
 
@@ -174,6 +208,24 @@
             }
             //This preserves the arrow keys from scrolling the window
             event.preventDefault();
+
+
+            //Clear board
+            for (var y = 0; y < boardHeight; ++y) {
+                for (var x = 0; x < boardWidth; ++x) {
+                    board[y][x].snake = 0;
+                    board[y][x].apple = 0;
+
+                }
+            }
+            // //Set the center of the board to contain a snake
+            board[snakeY][snakeX].snake = snakeLength;
+
+            //Place the first apple on the board
+            placeApple();
+
+
+
         }
     </script>
 
