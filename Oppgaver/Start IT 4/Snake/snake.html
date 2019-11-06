@@ -11,7 +11,7 @@
             text-align: center;
             font-family: Arial, Helvetica, sans-serif;
         }
-        
+
         #board div {
             background-color: rgb(216, 205, 205);
             border: 1px solid grey;
@@ -21,13 +21,13 @@
             width: 24px;
             height: 24px;
         }
-        
+
         #board {
             width: calc(26*24px);
             margin: auto;
             /* The margin: auto means that the board will be centered horizontally on-screen. */
         }
-        
+
         #board .snake {
             background-color: green;
         }
@@ -54,12 +54,11 @@
 
         function initGame() {
             const boardElement = document.getElementById("board");
-            for (let y = 0; y < boardHeight; y++) {
+
+            for (let y = 0; y < boardHeight; ++y) {
                 let row = [];
-                for (let x = 0; x < boardWidth; x++) {
-                    let cell = {
-                        snake: 0
-                    };
+                for (let x = 0; x < boardWidth; ++x) {
+                    let cell = {};
 
                     //Create a <div></div> and store it in the cell object.
                     cell.element = document.createElement("div");
@@ -87,8 +86,8 @@
             snakeDirection = "Up";
 
             //Clear the board
-            for (var y = 0; y < boardHeight; y++) {
-                for (var x = 0; x < boardWidth; x++) {
+            for (let y = 0; y < boardHeight; ++y) {
+                for (let x = 0; x < boardWidth; ++x) {
                     board[y][x].snake = 0;
                 }
             }
@@ -96,7 +95,7 @@
 
 
             //Set the center of the board to contain a snake
-            board[snakeY][snakeX].snake = 1;
+            board[snakeY][snakeX].snake = snakeLength;
 
 
             function gameLoop() {
@@ -126,16 +125,17 @@
                     startGame()
                 }
                 //Update the board at the new snake position
-                board[snakeY][snakeX].snake = 1;
+                board[snakeY][snakeX].snake = snakeLength;
 
 
                 //Loop over the entire board, and update every cell
-                for (let y = 0; y < boardHeight; y++) {
-                    for (let x = 0; x < boardWidth; x++) {
+                for (let y = 0; y < boardHeight; ++y) {
+                    for (let x = 0; x < boardWidth; ++x) {
                         let cell = board[y][x];
 
-                        if (cell.snake) {
+                        if (cell.snake > 0) {
                             cell.element.className = "snake";
+                            cell.snake -= 1;
                         } else {
                             cell.element.className = "";
                         }
@@ -143,12 +143,12 @@
                 }
 
                 // This function calls itself, with a timeout of 1000 milliseconds
-                setTimeout(gameLoop, 1000);
+                setTimeout(gameLoop, 1000 / snakeLength);
             }
 
 
             //Update the board at the new snake position
-            board[snakeY][snakeX].snake = 1;
+            board[snakeY][snakeX].snake = snakeLength;
 
             // Start the game loop (it will call itself with timeout)
             gameLoop();
