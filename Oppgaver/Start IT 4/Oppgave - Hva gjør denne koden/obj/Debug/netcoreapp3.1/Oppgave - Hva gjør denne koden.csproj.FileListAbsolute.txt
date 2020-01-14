@@ -1,0 +1,11 @@
+C:\Users\GET Academy Student\Desktop\GET\oppgaver\Oppgaver\Start IT 4\Oppgave - Hva gjør denne koden\bin\Debug\netcoreapp3.1\Oppgave - Hva gjør denne koden.exe
+C:\Users\GET Academy Student\Desktop\GET\oppgaver\Oppgaver\Start IT 4\Oppgave - Hva gjør denne koden\bin\Debug\netcoreapp3.1\Oppgave - Hva gjør denne koden.deps.json
+C:\Users\GET Academy Student\Desktop\GET\oppgaver\Oppgaver\Start IT 4\Oppgave - Hva gjør denne koden\bin\Debug\netcoreapp3.1\Oppgave - Hva gjør denne koden.runtimeconfig.json
+C:\Users\GET Academy Student\Desktop\GET\oppgaver\Oppgaver\Start IT 4\Oppgave - Hva gjør denne koden\bin\Debug\netcoreapp3.1\Oppgave - Hva gjør denne koden.runtimeconfig.dev.json
+C:\Users\GET Academy Student\Desktop\GET\oppgaver\Oppgaver\Start IT 4\Oppgave - Hva gjør denne koden\bin\Debug\netcoreapp3.1\Oppgave - Hva gjør denne koden.dll
+C:\Users\GET Academy Student\Desktop\GET\oppgaver\Oppgaver\Start IT 4\Oppgave - Hva gjør denne koden\bin\Debug\netcoreapp3.1\Oppgave - Hva gjør denne koden.pdb
+C:\Users\GET Academy Student\Desktop\GET\oppgaver\Oppgaver\Start IT 4\Oppgave - Hva gjør denne koden\obj\Debug\netcoreapp3.1\Oppgave - Hva gjør denne koden.csprojAssemblyReference.cache
+C:\Users\GET Academy Student\Desktop\GET\oppgaver\Oppgaver\Start IT 4\Oppgave - Hva gjør denne koden\obj\Debug\netcoreapp3.1\Oppgave - Hva gjør denne koden.AssemblyInfoInputs.cache
+C:\Users\GET Academy Student\Desktop\GET\oppgaver\Oppgaver\Start IT 4\Oppgave - Hva gjør denne koden\obj\Debug\netcoreapp3.1\Oppgave - Hva gjør denne koden.AssemblyInfo.cs
+C:\Users\GET Academy Student\Desktop\GET\oppgaver\Oppgaver\Start IT 4\Oppgave - Hva gjør denne koden\obj\Debug\netcoreapp3.1\Oppgave - Hva gjør denne koden.dll
+C:\Users\GET Academy Student\Desktop\GET\oppgaver\Oppgaver\Start IT 4\Oppgave - Hva gjør denne koden\obj\Debug\netcoreapp3.1\Oppgave - Hva gjør denne koden.pdb
