@@ -67,9 +67,9 @@
     <script>
         var startTime = new Date().getTime();
 
-        turnOnRandom();
+        turnOnRandom(); //Vi må kalle funksjonen for at den skal bli kjørt, dette gjør at den kjører med èn gang.
 
-        function turnOnRandom() {
+        function turnOnRandom() { //Denne funksjonen blir ikke kjørt om man ikke kaller den. Noe vi har gjort rett over. 
             var elementsList = document.getElementsByClassName("lamp");
             var randomIndex = Math.floor(Math.random() * elementsList.length);
             var selectedElement = elementsList[randomIndex];

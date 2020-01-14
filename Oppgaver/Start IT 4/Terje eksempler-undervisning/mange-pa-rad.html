@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        table, tr, td {
+            border: 1px solid gray;
+        }
+
+        td {
+            width: 20px;
+        }
+    </style>
+</head>
+<body>
+    <input id="sizeInput" type="range" min="3" max="20" oninput="changeSize(this.value)" />
+    <div id="board"></div>
+    <script>
+        // model
+        let size = 3;
+        let cells = []; //<--- array
+        // let object {}; <-- Object
+
+        // view
+        show();
+        function show() {
+            document.getElementById('sizeInput').value = size;
+            let tableHtml = '';
+            for (let cellIndex = 0; cellIndex < size * size; cellIndex++) {
+                const firstInRow = cellIndex % size == 0;
+                const indexOfFirstCell = 0;
+                const indexOfLastCell = size * size - 1;
+                if (firstInRow && cellIndex > indexOfFirstCell) tableHtml += '</tr>';
+                if (firstInRow && cellIndex < indexOfLastCell) tableHtml += '<tr>';
+                tableHtml += `<td onclick="markCell(${cellIndex})">${cells[cellIndex] || '&nbsp;'}</td>`;
+            }
+            document.getElementById('board').innerHTML = `
+                    <table>
+                        ${tableHtml}
+                    </table>
+                    `;
+        }
+
+        // controller
+        function changeSize(newSize) {
+            size = newSize; // Dette gjør at newSize gjør alt size gjør og man kan endre på newSize uten at size blir forandret. 
+            show();
+        }
+
+        function markCell(cellIndex) {
+            cells[cellIndex] = 'x';
+            show();
+        }
+
+    </script>
+</body>
+</html>

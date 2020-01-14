@@ -1,0 +1,6 @@
+C:\Users\GET Academy Student\Desktop\GET\oppgaver\Oppgaver\Start IT 4\PassordGenerator\bin\Debug\PassordGenerator.exe.config
+C:\Users\GET Academy Student\Desktop\GET\oppgaver\Oppgaver\Start IT 4\PassordGenerator\bin\Debug\PassordGenerator.exe
+C:\Users\GET Academy Student\Desktop\GET\oppgaver\Oppgaver\Start IT 4\PassordGenerator\bin\Debug\PassordGenerator.pdb
+C:\Users\GET Academy Student\Desktop\GET\oppgaver\Oppgaver\Start IT 4\PassordGenerator\obj\Debug\PassordGenerator.csprojAssemblyReference.cache
+C:\Users\GET Academy Student\Desktop\GET\oppgaver\Oppgaver\Start IT 4\PassordGenerator\obj\Debug\PassordGenerator.exe
+C:\Users\GET Academy Student\Desktop\GET\oppgaver\Oppgaver\Start IT 4\PassordGenerator\obj\Debug\PassordGenerator.pdb

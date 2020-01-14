@@ -34,19 +34,19 @@
 
     <table>
         <tr>
-            <td onmouseover="mouseover(this)" onmouseout="mouseLeave(this)">o</td>
-            <td onmouseover="mouseover(this)" onmouseout="mouseLeave(this)">o</td>
-            <td onmouseover="mouseover(this)" onmouseout="mouseLeave(this)">o</td>
+            <td onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">o</td>
+            <td onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">o</td>
+            <td onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">o</td>
         </tr>
         <tr>
-            <td onmouseover="mouseover(this)" onmouseout="mouseLeave(this)">o</td>
-            <td onmouseover="mouseover(this)" onmouseout="mouseLeave(this)">o</td>
-            <td onmouseover="mouseover(this)" onmouseout="mouseLeave(this)">o</td>
+            <td onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">o</td>
+            <td onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">o</td>
+            <td onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">o</td>
         </tr>
         <tr>
-            <td onmouseover="mouseover(this)" onmouseout="mouseLeave(this)">o</td>
-            <td onmouseover="mouseover(this)" onmouseout="mouseLeave(this)">o</td>
-            <td onmouseover="mouseover(this)" onmouseout="mouseLeave(this)">o</td>
+            <td onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">o</td>
+            <td onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">o</td>
+            <td onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">o</td>
         </tr>
     </table>
     <img src="mickey.inn.jpg" height="440" width="440" onmouseover="mickeyinn(this)" onmouseout="mickeyout(this)">
@@ -60,14 +60,15 @@
 
         function mickeyout(mkout) {
             mkout.src = "mickey.png";
+            
         }
 
-        function mouseover(hvr) {
+        function mouseOver(hvr) {
             hvr.innerHTML = "x";
             hvr.style.background = "lightblue";
         }
 
-        function mouseLeave(hvr) {
+        function mouseOut(hvr) {
             hvr.innerHTML = "o";
             hvr.style.background = "bisque";
         }

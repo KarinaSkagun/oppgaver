@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="content"></div>
+  <script>
+    // model
+    let model = [
+      {
+        item: "Melk",
+        quantity: 3,
+        unit: "l",
+        isDone: false
+      },
+      {
+        item: "Brød",
+        quantity: 3,
+        unit: "stk",
+        isDone: false
+      },
+      {
+        item: "Sjokolade",
+        quantity: 300,
+        unit: "g",
+        isDone: true
+      }
+    ];
+
+    //View
+    show();
+    let list = "";
+    function show() {
+      for (let i = 0; i < model.length; i++) {
+        let thing = model[i];
+        let style = thing.isDone ? "text-decoration: line-through" : "";
+        list += `
+    <input = "checkbox"
+        onclick = "changeDone(${i}, this.checked)"
+        ${thing.isDone ? "checked" : ""}/>
+    <span style="${style}">
+         ${thing.item} ${thing.quantity} ${thing.unit}
+    <span/>
+    <button onclick = "remove(${i})">x<button/>
+    <br/>`;
+      }
+
+
+
+      show();
+      let list = "";
+      function show() {
+        for (let i = 0; i < model.length; i++) {
+          let thing = model[i];
+          let style = thing.isDone ? "text-decoration: line-through" : "";
+          list += `
+    <input type= "checkbox"
+    onclick = "changeDone(${i}, this.checked)"
+    ${thing.isDone ? "checked" : ""}/>
+    <span style="${style}">
+    ${thing.item} ${thing.quantity} ${thing.unit}
+    </span>
+    <button onclick="remove(${i})">x</button>
+   <br/> `;
+
+        }
+      }
+
+
+      show();
+      let list = "";
+      function show() {
+        for (let i = 0; i < model.length; i++) {
+          let thing = model[index];
+          let style = thing.isDone ? "text-decoration: line-through" : "";
+          list += `
+          <input type ="checkbox"
+          onclick = "changeDone(${i}, this.checked)"
+          ${thing.isDone ? "checked" : ""}/>
+          <span style = ${style}>
+          ${thing.item} ${thing.quantity} ${thing.unit}
+          <span/>
+          <button onclick = "remove(${i})">x</button>
+<br/>
+          `
+
+        }
+      }

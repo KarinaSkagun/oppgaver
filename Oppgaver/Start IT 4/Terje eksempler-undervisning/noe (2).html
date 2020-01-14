@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+  <body>
+    <div id="content"></div>
+    <script>
+      // model
+      let model = [
+        {
+          item: "Melk",
+          quantity: 3,
+          unit: "l",
+          isDone: false
+        },
+        {
+          item: "Brød",
+          quantity: 3,
+          unit: "stk",
+          isDone: false
+        },
+        {
+          item: "Sjokolade",
+          quantity: 300,
+          unit: "g",
+          isDone: true
+        }
+      ];
+
+      // view
+      show();
+      function show() {
+        let list = "";
+        for (let i = 0; i < model.length; i++) {
+          let thing = model[i];
+          let style = thing.isDone ? "text-decoration: line-through" : "";
+          list += `
+                    <input type="checkbox"
+                           onclick="changeDone(${i}, this.checked)" 
+                            ${thing.isDone ? "checked" : ""}/>
+                        <span style="${style}">
+                            ${thing.quantity}${thing.unit} 
+                            ${thing.item}
+                        </span>
+                    <button onclick="remove(${i})">x</button>
+                <br/>`;
+        }
+
+        document.getElementById("content").innerHTML = `
+                <h2>Handleliste</h2>
+                Vare:<br/>
+                <input id="itemInput" type="text"/><br/>
+                Mengde:<br/>
+                <input id="quantityInput" type="number"/><br/>
+                Enhet:<br/>
+                <input id="unitInput" type="text"/><br/>              
+                <button onclick="addNew()">Legg til</button><br/>
+
+                ${list}
+                `;
+      }
+
+      // controller
+      function remove(index) {
+        model.splice(index, 1);
+        show();
+      }
+
+      function changeDone(index, isDone) {
+        model[index].isDone = isDone;
+        show();
+      }
+
+      function addNew() {
+        let newThing = {};
+        newThing.item = getValue("itemInput");
+        newThing.quantity = getValue("quantityInput");
+        newThing.unit = getValue("unitInput");
+        model.push(newThing);
+        show();
+      }
+
+      function getValue(id) {
+        //For å få tak i alle id'ene.
+        return document.getElementById(id).value;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+#page {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 100px 10fr 30px;
+    grid-template-areas: "header header" "menu mainContent" "footer footer";
+}
+
+#header {
+    background-color: lightblue;
+    grid-area: header;
+    position: sticky;
+  
+}
+
+#mainContent {
+    background-color: rgb(235, 222, 222);
+    grid-area: mainContent;
+  
+}
+
+#footer {
+    background-color: lightblue;
+    grid-area: footer;
+
+}
+
+#menu {
+    background-color: rgb(129, 207, 233);
+    grid-area: menu;
+
+}
+

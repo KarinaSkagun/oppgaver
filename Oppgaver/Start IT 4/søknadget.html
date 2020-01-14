@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Søknad</title>
+    <link rel="stylesheet" type="text/css" href="cssSøknad.css" />
+
+
+</head>
+<body>
+
+    <div id="content"></div>
+
+  
+    <!--<h1>Hei</h1>-->
+
+    <script>
+        let content = document.getElementById('content');
+     //models
+        const model = [
+            'why',
+            'needs',
+            'strengths',
+        ]
+        
+
+     //view
+        show();
+        function show(){
+            content.innerHTML = `<div class="flipCard"> 
+                                   <div class="card" onclick="this.classList.toggle('flipped');"> 
+                                     <div class="side front">FRONT</div> 
+                                     <div class="side back">BACK<br/>Explanation</div> 
+                                   </div> 
+                                 </div>`
+        }
+
+
+     //controller
+        function flipp(){
+        
+        }
+
+    </script>
+</body>
+</html>

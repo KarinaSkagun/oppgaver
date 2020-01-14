@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+</head>
+<style>
+#first{
+    clear:left;
+}
+#box, #first {
+    float:left;
+    background-color: lavenderblush;
+    font-size: 25px;
+    margin: 2px;
+    padding: 15px;
+}
+
+
+</style>
+<body>
+    <div>Her vises tallene du trykker på: </div>
+    <div id="info"></div>
+<p id="tallboks"></p>
+    <button id="box" onclick="display(this.innerHTML)">1</button>
+    <button id="box" onclick="display(this.innerHTML)">2</button>
+    <button id="box" onclick="display(this.innerHTML)">3</button>
+    <button id="first" onclick="display(this.innerHTML)">4</button>
+    <button id="box" onclick="display(this.innerHTML)">5</button>
+    <button id="box" onclick="display(this.innerHTML)">6</button>
+    <button id="first" onclick="display(this.innerHTML)">7</button>
+    <button id="box" onclick="display(this.innerHTML)">8</button>
+    <button id="box" onclick="display(this.innerHTML)">9</button>
+
+
+    <button onclick="display(this.innerHTML)">OK</button>
+</body>
+
+<script>
+let tall= "";
+let text = document.getElementById("tallboks");
+
+function display(boxes){
+    let numbers = document.getElementById("info").innerHTML += boxes;
+}
+
+function display(buttons){
+    if(tall === "9213" && buttons == "OK"){
+        clear();
+        text.innerHTML="Låsen er åpen!";
+    }
+    else if(tall.length ==4){ 
+        clear();
+text.innerHTML = "Feil kode!"
+
+    } else if (buttons == "OK"){
+} 
+
+else {
+    tall += buttons;
+    text.innerHTML = tall;
+}
+}
+
+function clear() {
+    tall = "";
+}
+
+
+
+    </script>
+</html>

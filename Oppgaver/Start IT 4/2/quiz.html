@@ -1,10 +1,12 @@
 ﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="utf-8" />
     <title></title>
 </head>
+
 <body>
     <h2>Hva heter hovedstaden i Norge?</h2>
 
@@ -13,35 +15,32 @@
     <p id="berg">Bergen</p>
 
     <style>
-    p {
-        width: 120px;
-        height: 25px;
-        border: 2px solid orange;
-        text-align: center;
-        background-color: beige;
-        color: black;
-        padding-top:5px;
-         font: bold 14px arial, verdana;
-    }
-
-    h2 {
-        width: 380px;
-        height: 40px;
-        border: 2px solid orange;   
-        background-color: beige;
-        color: black;
-        text-align: center;
-        padding-top: 10px;
-        font-family: Arial, Verdana;
-       
-    }
-
-
+        p {
+            width: 120px;
+            height: 25px;
+            border: 2px solid orange;
+            text-align: center;
+            background-color: beige;
+            color: black;
+            padding-top: 5px;
+            font: bold 14px arial, verdana;
+        }
+        
+        h2 {
+            width: 380px;
+            height: 40px;
+            border: 2px solid orange;
+            background-color: beige;
+            color: black;
+            text-align: center;
+            padding-top: 10px;
+            font-family: Arial, Verdana;
+        }
     </style>
 
 
     <script>
-        document.getElementById("tøns").onclick = function () {
+        document.getElementById("tøns").onclick = function() {
             myFunction()
         };
 
@@ -49,22 +48,24 @@
             document.getElementById("tøns").innerHTML = "Svaret er feil!";
         }
 
-        document.getElementById("oslo").onclick = function () {
+        document.getElementById("oslo").onclick = function() {
             myFunction2()
         };
+
         function myFunction2() {
             document.getElementById("oslo").innerHTML = "Svaret er riktig!";
         }
 
-        document.getElementById("berg").onclick = function () {
+        document.getElementById("berg").onclick = function() {
             myFunction3()
         };
+
         function myFunction3() {
             document.getElementById("berg").innerHTML = "Svaret er feil!";
         }
-    
-
-
+          
     </script>
 </body>
+
 </html>
+
